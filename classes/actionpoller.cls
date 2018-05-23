@@ -4,6 +4,7 @@ public class actionpoller
     public actionpoller()
     {
         seconds=0;
+        system.debug('gopi---');
         }
     public void action() 
     {
