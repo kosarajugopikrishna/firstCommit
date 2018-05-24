@@ -1,0 +1,11 @@
+<apex:page controller="Accountpage" >
+ <apex:form >
+  <center>
+   <apex:pageBlock >
+  <b> Account Name:</b><apex:inputtext value="{!acc.name}"/>
+   <b><br><br>Account Phone:<apex:inputtext value="{!acc.phone}"/></br></br></b>
+                 <apex:commandButton value="Save" action="{!save}"/>
+   </apex:pageBlock>
+   </center>
+  </apex:form>
+ </apex:page>

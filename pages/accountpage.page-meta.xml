@@ -3,7 +3,7 @@
     <apiVersion>32.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>actionsupport</label>
+    <label>accountpage</label>
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>6</minorNumber>
