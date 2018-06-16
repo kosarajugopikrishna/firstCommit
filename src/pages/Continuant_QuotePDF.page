@@ -1,0 +1,919 @@
+<apex:page showheader="false" docType="html-5.0"  standardController="Contact" extensions="forquotepdf"  applyBodyTag="false" applyHtmlTag="false" renderAs="pdf"><!--docType="html-5.0" renderAs="pdf"-->
+<!--<apex:variable value="{!IF(Contact.LeadSource=='Web',{!$Resource.continuant_header} ,{!$Resource.continuant_header})}" var="hdr"/> -->
+ <head>
+  
+     <style type="text/css">
+            @page {
+                   margin-top: 3.0cm;
+                   margin-left: 0cm;
+                   margin-right: 0cm;
+                   padding-bottom:20px;
+                  
+            @top-center{
+                  background-image: url({!$Resource.continuant_header});
+                  width:100%;
+                 }
+            @bottom-right{
+                  content: "Page " counter(page) " of " counter(pages);
+                  padding-bottom:20px;
+                  padding-right:30px;
+                 }
+              
+            @page:first{ 
+                @top-center{content: normal}
+                @bottom-right {content: normal}
+                }
+             }  
+             /*@page{
+          @bottom-right{
+                  content: "Page " counter(page) " of " counter(pages);
+                  padding-bottom:20px;
+                  padding-right:30px;
+              }   
+            }*/
+          
+          .Page1Table
+          {
+            width:98%;
+            margin-right:1%;
+            margin-left:1%;
+            }
+          .LocationTable
+          {
+            width:90%;
+            margin-left:5%;
+            margin-right:5%;
+            margin-top:2%;
+            border:1px solid black;
+            }
+          .tablestyle
+           {
+            border:1px solid black;
+            }   
+            .Agreement{
+              border: 1px solid;
+              padding-left:10px;
+              }     
+             .wrap td div {
+              width: 150px;
+              word-wrap: break-word;
+              border: 1px solid red;
+                } 
+          
+        .oddrow{background-color: #C0C0C0; } 
+        .evenrow{background-color:; } 
+       .wordwrap
+        {
+       
+        white-space: pre; 
+        white-space: pre-wrap;
+        white-space: pre-line; 
+        white-space: -pre-wrap; 
+        white-space: -o-pre-wrap; 
+        white-space: -moz-pre-wrap;
+        word-wrap: break-word; 
+        }
+        </style> 
+    
+  </head>
+  
+  <body > 
+ 
+    <apex:form style="font-weight:lighter;font-family:'Segoe UI', Tahoma, sans-serif;">
+   
+   <!--<apex:stylesheet value="{!URLFOR($Resource.Continuant_PDF_Styles)}"/>
+<apex:image value="{!$Resource.Continuant_Header}" />-->
+    
+      <div calss="first">
+       <table class="Page1Table"><!--Style="width:98%;margin-right:1%;margin-left:1%;"---->
+         <tr><td>
+          <apex:outputPanel style="margin-left:30px;font-size:30px;color:#033346;font-weight:lighter;font-family:'Segoe UI', Tahoma, sans-serif;">
+            PROPOSAL
+          </apex:outputPanel>
+         </td></tr>
+       </table>
+       
+       <table Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid red;border-collapse:collapse;">
+       
+         <tr Style="width:100%;">
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%;">
+                <tr>
+                  <td style="padding-left:90px;padding-top:60px;">Prepared For</td>
+                </tr>
+             </table>
+           </td>
+           
+           <td style="width:50%;vertical-align:top;">
+             <table style="width:100%">
+               <tr>
+                    <td style="padding-left:30px;padding-top:60px;font-weight:bold;font-size:20px;">
+                      Customer Name
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Point of Contact
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Title
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                     Phone
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Email
+                    </td>
+               </tr> 
+               
+             </table>
+            </td>
+           </tr>
+        </table>
+
+ <table Style="width:98%;margin-left:1%;margin-right:1%;">
+       
+         <tr Style="width:100%;">
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%;">
+                <tr>
+                  <td style="padding-left:90px;padding-top:90px;font-weight:100;">Prepared By</td>
+                </tr>
+             </table>
+           </td>
+           
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%">
+               <tr>
+                    <td style="padding-left:30px;padding-top:85px;font-weight:bold;font-size:20px;">
+                      Name
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Customer Relationship Manager
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Phone
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      email@continuant.com
+                    </td>
+               </tr> 
+               
+             </table>
+            </td>
+           </tr>
+        </table>
+      
+        <div style="page-break-after:always;" > 
+        
+        <table Style="width:98%;margin-left:1%;margin-right:1%;">
+       
+         <tr Style="width:100%;">
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%;">
+                <tr>
+                  <td></td>
+                </tr>
+             </table>
+           </td>
+           
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%;" >
+               <tr>
+                    <td style="padding-left:30px;padding-top:50px;font-weight:bold;font-size:20px;">
+                      Name (optional 2nd name)
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Title
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px;">
+                      Phone
+                    </td>
+               </tr> 
+               <tr>
+                    <td style="padding-left:30px;padding-top:10px; ">
+                      email
+                    </td>
+               </tr> 
+             </table>
+            </td>
+           </tr>
+        </table>
+        </div>
+   </div>
+     
+       
+ <!---------------------------------- PAGE 2--------------------->
+ <table Style="width:98%;margin-right:1%;margin-left:1%;">
+         <tr><td>
+          <apex:outputPanel style="margin-left:30px;font-size:30px;color:#033346;font-weight:lighter;font-family:'Segoe UI', Tahoma, sans-serif;">
+            CONTENTS
+          </apex:outputPanel>
+         </td></tr>
+       </table>
+      
+         <table Style="width:98%;margin-left:1%;margin-right:1%;" >
+       
+         <tr Style="width:100%;">
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%;">
+                <tr>
+                  <td style="padding-left:90px;padding-top:60px;font-weight:100;">Summary</td>
+                </tr>
+             </table>
+           </td>
+           
+           <td style="width:50%;vertical-align:top; ">
+            <table style="width:100%" cellpadding="0" cellspacing="0">
+             <tr>
+              <td style="padding-top:60px;font-size:15px;">
+               <ul >
+                  <li  style="list-style-type:square;"> <!--padding-left:20px;-->
+                          &nbsp;&nbsp;Continuant Managed Services Brochure
+                  </li>
+                 </ul>
+               </td>
+              </tr>
+             </table> 
+            </td>
+           </tr>
+         </table>
+         
+         
+         
+     <table Style="width:98%;margin-left:1%;margin-right:1%;page-break-after:always;">
+      <tr Style="width:100%;">
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%;">
+                <tr>
+                  <td style="padding-left:90px;padding-top:90px;font-weight:100;">Agreement</td>
+                </tr>
+             </table>
+           </td>
+           
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%" cellpadding="0" cellspacing="0">
+               <tr>
+                    <td style="padding-top:90px;">
+                     <ul style="list-style-type:square;">
+                      <li>&nbsp;&nbsp;Agreement</li> 
+                      <li>&nbsp;&nbsp;Statement of Work</li> 
+                      <li>&nbsp;&nbsp;Terms and Conditions</li> 
+                     </ul>
+                   </td>
+               </tr> 
+            </table>
+          </td>
+        </tr>
+      </table>
+        
+       <!--<div style="position: relative; left: 0px; top: 0px;">
+          <img src="{!$Resource.Continuant_Header}" style=" position: relative;top:0px; left: 0px;"/>
+          <img src="{!URLFOR($Resource.Brochure, 'Brochure/Page3.tif')}" style="position:absolute;top: 0px; left: 0px;margin-left:-0.075in;" width="105%"/>
+        </div>-->
+        
+    <!--<div class="third">
+       <img src="{!URLFOR($Resource.Brochure, 'Brochure/Page3.tif')}" width="105%" height="870px" style="margin-left:-0.075in;"/>
+    </div>
+    <div>
+        <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page4.tif')}" width="105%"  height="870px" style="margin-left:-0.075in;"/>
+         <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page5.tif')}" width="105%"  height="870px" style="margin-left:-0.075in;"/>
+          <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page6.tif')}" width="105%"  height="870px" style="margin-left:-0.075in;"/>    
+           <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page7.tif')}" width="105%"  height="870px" style="margin-left:-0.075in;"/>     
+            <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page8.tif')}" width="105%"  height="870px" style="margin-left:-0.075in;"/>       
+             <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page9.tif')}" width="105%"  height="870px" style="margin-left:-0.075in;"/>        
+              <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page10.tif')}" width="105%" height="870px" style="margin-left:-0.075in;"/>
+               <apex:image url="{!URLFOR($Resource.Brochure, 'Brochure/Page11.tif')}" width="105%" height="870px" style="margin-left:-0.075in;"/>
+    </div>-->
+    <apex:repeat value="{!imageList}" var="img">
+        <apex:image url="{!URLFOR($Resource.Brochure2,img)}"  width="105%"  height="870px" style="margin-left:-0.081in;" />
+    </apex:repeat>
+ <!--<div> 
+   <img src="{!$Resource.Con_Page}" style="width:100%;"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:710px;"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:710px;height:1000px"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:820px;height:1000px" />
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:820px;height:1000px"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:820px;height:1000px"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:820px;height:1000px"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:820px;height:1000px;"/>
+ </div>
+ <div style="page-break-after:always;"> 
+      <img src="{!$Resource.Con_Page}" style="width:820px;height:1000px;"/>
+ </div>-->
+ 
+ <!------------------------PAGE 12 STARTS-------------------->
+       
+
+        <table Style="width:98%;margin-right:1%;margin-left:1%;page-break-after:always;">
+         <tr><th>
+        
+          <apex:outputPanel style="margin-left:35px;font-size:30px;color:#033346;font-weight:normal;">
+            AGREEMENT
+          </apex:outputPanel>
+          
+         </th></tr>
+        <tr Style="width:100%;margin-top:10px;">
+           <td style="width:50%;vertical-align:top;">
+             <table style="width:100%;">
+                <tr >
+                  <td style="padding-top:5px;padding-left:40px;font-size:15px;">
+                      <apex:outputlabel > XXXXXXXXXX </apex:outputlabel>
+                     
+                  </td>
+                   <td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#x2714;</td>
+               </tr>
+               <tr >
+                  <td style="padding-left:40px;font-size:15px;">
+                     <apex:outputlabel > XXXXXXXXXX </apex:outputlabel>
+                  </td>
+               </tr>
+               <tr >
+                  <td style="padding-left:40px;font-size:15px;">
+                      <apex:outputlabel > XXXXXXXXXX </apex:outputlabel>
+                  </td>
+               </tr>
+               <tr >
+                  <td style="padding-left:40px;font-size:15px;">
+                      <apex:outputlabel > XXXXXXXXXX </apex:outputlabel>
+                  </td>
+               </tr>
+               <tr >
+                  <td style="padding-left:40px;font-size:15px;">
+                    Governed under the Terms and Conditions of
+                  </td>
+               </tr>
+                <tr >
+                  <td style="padding-left:40px;font-size:15px;">
+                    Agreement Number: &nbsp;
+                    <apex:outputPanel >XXXXXXXXXX</apex:outputPanel>
+                  </td>
+               </tr>
+             </table>
+           </td>
+           
+           <td style="width:50%;vertical-align:top; ">
+             <table style="width:100%">
+               <tr>
+                    <td style="padding-left:50px;padding-top:10px;font-size:15px;">
+                      Continuant ("SUPPLIER")
+                    </td>
+              </tr>     
+              <tr>
+                  <td style="padding-left:50px;font-size:15px;">
+                    5050 20th Street East
+                  </td>
+              </tr>
+               <tr>
+                  <td style="padding-left:50px;font-size:15px;">
+                   Tacoma, WA 98424
+                  </td>
+              </tr>
+              <tr>
+                  <td style="padding-left:50px;font-size:15px;">
+                    (800) 652-9920
+                   </td>
+               </tr> 
+           </table>
+          </td>
+         </tr>
+       </table>
+   <!--------------------------------------AGREEMENT Table Starts Page-12----------------->
+    <div  class="wordwrap" style="page-break-after:always;font-size:14px;font-family:'Segoe UI';margin-left:5%;margin-right:5%;width:60%;">
+           <apex:outputText style=""  escape="false" value="{!substr}" /> 
+        </div>
+        
+   <!------------------------Table Header Starts---------------------->
+     <table Style="width:90%;margin-left:5%;margin-right:5%;margin-top:1.5%;page-break-after:always;" cellspacing="0" >
+     
+      <tr style="background-color:#033346;color:white;height:1.2px;font-size:12px;text-align:left;font-style:italic;padding-left:10px;"><!---#033346--->
+        <td width="15%" style="padding-left:10px;border:1px solid black;"><apex:outputlabel >Location</apex:outputlabel></td>
+        <td width="20%" style="padding-left:10px;border:1px solid black;border-right-style:none;border-left-style:none;">Application(s)</td>
+        <td width="35%" style="padding-left:10px;border:1px solid black;">Managed Service(s)</td>
+        <td width="15%" style="padding-left:10px;border:1px solid black;border-right-style:none;border-left-style:none">Count <br/>(User/Device)</td><!--UOM <br/>(User/Device)-->
+        <td width="15%" style="padding-left:10px;border:1px solid black">Monthly Price</td>
+      </tr>
+      
+      <tr style="font-size:10px;font-weight:normal;" cellspacing="0">
+      <td style="width:15%;border:1px solid;vertical-align:left;padding-left:10px;border-top-style:none"> 
+       <apex:outputLabel >XXXXXXXXXXXXXXX
+       </apex:outputLabel>
+      </td>
+        
+      <td style="width:20%;text-align:left;border:1px solid;border-left-style:none;border-right-style:none;border-top-style:none">
+      
+          <ul style="list-style-type:dots;text-align:left">
+                <li> 
+                 <apex:outputlabel >XXXXXXXX XXXXXXXXXXXXXXX</apex:outputlabel>
+                </li>
+                <li>
+                 <apex:outputlabel >XXXXXXXXXXX</apex:outputlabel><!------- style="word-break:keep-all;"-------->
+                </li>
+                <li>
+                 <apex:outputlabel >XXXXXXXXXXX</apex:outputlabel><!----------style="word-break:keep-all;"-------->
+                </li>
+          </ul>
+     
+      </td>
+        
+      <td style="border:1px solid;text-align:left;border-top-style:none">
+       
+          <ul style="list-style-type:dots;">
+                <li> 
+                 <apex:outputlabel >XXXXXXXXXXXXXXXXXXXXXX</apex:outputlabel>
+                </li>
+                <li>
+                 <apex:outputlabel >XXXXXXXXXXXXXXXXXXXXXX</apex:outputlabel>
+                </li>
+          </ul>
+         
+      </td>
+      <td style="border:1px solid;padding-left:10px;border-left-style:none;border-right-style:none;border-top-style:none"> 
+       <apex:outputLabel >XXXXXX
+       </apex:outputLabel>
+      </td>
+      <td style="border:1px solid;padding-left:10px;border-top-style:none"> 
+       <apex:outputLabel >XXXXXX
+       </apex:outputLabel>
+      </td>
+     </tr>
+  </table> 
+    
+   <!----------------------Table Header Ends-------------------------->
+   
+   <!----------------------Table Body Starts-------------------------->
+
+   
+     <!-------------------------------------- Table Body Ends----------------->
+     
+
+     
+
+      <table Style="width:90%;margin-left:5%;margin-right:5%;margin-top:1.5%;border-collapse:collapse;">
+       
+         <tr Style="width:100%;">
+           <td style="width:30%;">
+             <table style="width:100%;">
+                <tr>
+                  <td></td>
+                </tr>
+             </table>
+           </td>
+           
+           <td style="width:60%;">
+             <table style="width:100%;border-collapse:collapse;line-height:0.3cm;" cellpadding="7"><!--page-break-inside:avoid;--->
+               <tr>
+                    <td style="padding-right:100px;text-align:right;font-size:13px;font-weight:bold;" bgcolor="#C0C0C0">TOTAL MONTHLY PRICE:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;font-weight:bold;" bgcolor="#C0C0C0">XXXXXX</td>
+               </tr>
+               
+               <tr>
+                    <td style="padding-right:100px;font-size:13px;text-align:right" >Total One-Time Fee:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXX</td>
+               </tr>
+               <tr>
+                    <td style="padding-right:100px;font-size:13px;text-align:right;" >Additional option of dedicated support engineer:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXXXXXXX</td>
+               </tr>
+               <tr>
+                    <td style="padding-right:100px;font-size:13px;text-align:right;" >Additional option of IPM- Voice Cisco locations:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXXXXXXX</td>
+               </tr>
+                 <tr>
+                    <td style="padding-right:100px;font-size:13px;text-align:right;" >Volume Discount:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXXXXXXXXXXXXX</td>
+               </tr>
+                 <tr>
+                    <td style="padding-right:100px;font-size:13px;text-align:right;" >Pricing valid until:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXX</td>
+               </tr>
+                 <tr>
+                    <td style="padding-right:100px;font-size:13px;text-align:right;" >Commencement Date:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXX</td>
+               </tr>
+               <tr>
+                    <td style="padding-right:102px;font-size:13px;text-align:right;" >Term:</td>
+                    <td style="padding-left:2px;text-align:right;font-size:13px;">XXXXXX</td>
+               </tr>
+               
+             </table>
+           </td>
+          </tr>
+        </table><br/><br/><br/>
+      
+   <table Style="width:90%;margin-left:5%;margin-right:5%;border-collapse:collapse;">
+     <hr Style="border:1px solid black;width:59%;margin-left:36%;margin-right:5%;margin-bottom:0px;"/> 
+             <table style="width:100%;border-collapse:collapse;">
+                <tr>
+                  <td style="width:35%;font-size:15px;text-align:right;padding-left:4px;">I agree to the terms and conditions of this Agreement.</td>
+                  <td style="width:35%;font-size:15px;text-align:left;padding-left:20px;">Customer Signature</td>
+                  <td style="width:35%;font-size:15px;text-align:left;padding-left:40px;">Date</td>
+                </tr>
+             </table><br/><br/><br/>
+             
+     <hr Style="border:1px solid black;width:59%;margin-left:36%;margin-right:5%;margin-bottom:0px;"/>       
+             <table style="width:100%;border-collapse:collapse;page-break-after:always">
+                <tr>
+                  <td style="width:35%;"></td>
+                  <td style="width:35%;font-size:15px;text-align:left;padding-left:20px;">Customer Print Signature</td>
+                  <td style="width:35%;font-size:15px;text-align:left;padding-left:40px;">Date</td>
+                </tr>
+             </table>
+            
+   </table>
+<!------------------------------Agreement Page ENDS---------------------------------------------> 
+
+           
+<!------------------------------Location Table  Starts----------------------------------->
+
+         <apex:outputlabel style="width:90%;margin-left:5%;margin-right:5%;margin-top:5%;font-size:15px;font-weight:lighter;font-family:'Segoe UI', Tahoma, sans-serif;">Location Table</apex:outputlabel>
+        
+          <table class="LocationTable"  cellspacing="0"  cellpadding="10">
+            <tr style="background-color:#033346;color:white;font-size:15px;padding-left:50px;width:25%;text-align:center;">
+              <td>24/7 Enhanced SLA</td>
+              <td>Commence Date</td>
+              <td>Paid Monthly</td>
+              <td>Paid Annually</td>
+            </tr>
+         </table>
+
+        <table style="width:90%;margin-left:5%;margin-right:5%;border:1px solid;border-top-style:none;page-break-after:always;" cellspacing="0" cellpadding="10"><!--border:1px solid black;border-top-style:none;-->
+            <tr style="background-color:white;font-size:12px;font-family:'Arial';padding-left:0.5px;width:25%;text-align:center;">
+              <td>XXXXXXXXXXXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+            </tr>
+            <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';padding-left:0.5px;width:25%;text-align:center;">
+              <td>XXXXXXXXXXXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+            </tr>
+            
+            <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+              <td>XXXXXXXXXXXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+            </tr>
+             <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+              <td>XXXXXXXXXXXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+            </tr>
+             <tr style="background-color:white;font-size:12px;color:white;font-family:'Arial';width:25%;text-align:center;">
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+              <td>XXXXXXXX</td>
+             </tr>
+             
+            <tr style="background-color:#033346;color:white;font-size:15px;font-family:'Segoe UI', Tahoma, sans-serif;font-weight:Bold;width:25%;text-align:center;">
+              <th >8/5 Enhanced SLA</th>
+              <th >Commence Date</th>
+              <th >Paid Monthly</th>
+              <th >Paid Annually</th>
+            </tr>
+            
+            <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+              <td >XXXXXXXXXXXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+            </tr>
+            <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+              <td >XXXXXXXXXXXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+            </tr>
+            <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+              <td >XXXXXXXXXXXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+            </tr>
+             <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+              <td >XXXXXXXXXXXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+              <td >XXXXXXXX</td>
+            </tr>
+            <tr style="background-color:white;font-size:12px;color:white;font-family:'Arial';width:25%;text-align:center;">
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td> 
+                  <td >XXXXXXXX</td>
+            </tr>
+            
+            <tr style="background-color:#033346;color:white;font-size:15px;font-family:'Segoe UI', Tahoma, sans-serif;font-weight:Bold;width:25%;text-align:center;">
+              <th >24/7 Standard SLA</th>
+              <th >Commence Date</th>
+              <th >Paid Monthly</th>
+              <th >Paid Annually</th>
+            </tr>
+            
+                <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+                  <td >XXXXXXXXXXXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                </tr>
+                <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+                  <td >XXXXXXXXXXXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                </tr>
+                <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+                  <td >XXXXXXXXXXXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                </tr>
+                 <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+                  <td >XXXXXXXXXXXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                </tr>
+                <tr style="background-color:white;font-size:12px;color:white;font-family:'Arial';width:25%;text-align:center;">
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                  <td >XXXXXXXX</td>
+                </tr>
+            
+                
+          <tr style="background-color:#033346;color:white;font-size:15px;font-family:'Segoe UI', Tahoma, sans-serif;font-weight:Bold;width:25%;text-align:center;">
+             <th >8/5 Standard SLA</th>
+             <th >Commence Date</th>
+             <th >Paid Monthly</th>
+             <th >Paid Annually</th>
+          </tr>
+          <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+             <td >XXXXXXXXXXXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+          </tr>
+          <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+             <td >XXXXXXXXXXXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+          </tr>
+          <tr style="background-color:white;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+             <td >XXXXXXXXXXXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+          </tr>
+          <tr style="background-color:#C0C0C0;font-size:12px;font-family:'Arial';width:25%;text-align:center;">
+             <td >XXXXXXXXXXXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+             <td >XXXXXXXX</td>
+          </tr>
+          <tr style="background-color:white;font-size:12px;color:white;font-family:'Arial';width:25%;text-align:center;">
+             <td>XXXXXXXX</td>
+             <td>XXXXXXXX</td>
+             <td>XXXXXXXX</td>
+             <td>XXXXXXXX</td>
+          </tr>
+    </table>
+    
+<!------------------------------Location Table Example Ends----------------------------------->
+
+<!------------------------------COVERED SYSTEMS STARTS----------------------------------->
+    <apex:outputlabel style="width:90%;margin-left:5%;font-size:20px;color:#505050 ">Covered Equipment</apex:outputlabel>
+    
+    <table style="width:90%;margin-left:5%;margin-right:5%;margin-top:5%;border:1px solid #505050;border-bottom-style:none;font-size:15px;" cellspacing="0" >
+     <tr style="width:100%;background-color:#033346;color:white;"><!----#033346---->
+      <td style="width:20%;text-align:center;">System Type(s)</td>
+      <td style="width:20%;text-align:center;">Covered Units</td><!--Unit of <br/>Measure-->
+      <td style="width:60%;text-align:center;">Notes</td><!----Managed Components--->
+     </tr>
+    </table>
+    
+    <table style="width:90%;margin-left:5%;margin-right:5%;page-break-after:always;border:1px solid black;font-size:11px;" cellspacing="0">
+     <tr style="width:100%;border:1px solid;">
+       <td style="width:20%;text-align:center;border:1px solid;">
+        <div style='word-wrap:break-word'>
+        <apex:outputlabel >XXXXXXXXXXXXXXXXXX</apex:outputlabel>
+        </div>
+       </td>
+       <td style="width:20%;text-align:center;border:1px solid;">
+        <apex:outputlabel >XXXXXXXXXXXX</apex:outputlabel>
+       </td>
+       <td style="width:60%;text-align:left;border:1px solid;"><!------word-wrap: break-word;word-break:break-all;------->
+        <table style="width:100%;">
+         <tr>
+          <td>
+           <ul style="list-style-type:dots;">
+                <li> 
+                 <apex:outputlabel style="word-wrap: break-all;">XXXXXXXXXXXXXXXXXXX</apex:outputlabel>
+                </li>
+                <li>
+                 <apex:outputlabel style="word-break:keep-all;">XXXXXXXXXXXX XXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXXX XXXXXXXXXXXX</apex:outputlabel>
+                </li>
+           </ul>
+          </td>
+         </tr>
+        </table>
+       </td>
+      </tr>
+    </table>
+<!------------------------------COVERED SYSTEMS ENDS-------------------------------------> 
+
+<!----------------Terms and Conditions------------->
+
+       <!--<apex:image value="{!$Resource.Page30}" width="100%"/>
+       <apex:image value="{!$Resource.Page31}" width="100%"/>
+       <apex:image value="{!$Resource.Page32}" width="100%"/>
+       <apex:image value="{!$Resource.Page33}" width="100%"/>-->
+  
+<!--------------Terms and Conditions Ends---------->
+  <div style="height:500px;width:90%;margin-left:5%;margin-right:5%;font-size:10px;page-break-after:always;">
+       <apex:outputPanel rendered="{!remoteitem}">
+       <apex:outputtext value="{!TTC}" escape="false">
+       </apex:outputtext>
+       </apex:outputPanel>
+  </div>
+  <!--<table style="width:25%;margin-left:37.5%;margin-right:37.5%;margin-top:80px;border:1px solid;border-collapse:collapse;text-align:center">
+   <tr style="background-color:#C0C0C0;">
+    <td style="border:1px solid">Category </td>
+    <td style="border:1px solid">Size</td>
+   </tr>
+   <tr style="font-style:italic">
+    <td style="border:1px solid">Type 1</td>
+    <td style="border:1px solid">Small</td>
+   </tr>
+   <tr style="font-style:italic">
+    <td style="border:1px solid">Type 2</td>
+    <td style="border:1px solid">Med</td>
+   </tr>
+   <tr style="font-style:italic">
+    <td style="border:1px solid">Type 3</td>
+    <td style="border:1px solid">Large</td>
+   </tr>
+  </table>-->
+    
+ <!--<script>
+  window.location.href = "data:application/pdf;base64,{!str}";
+  </script>-->
+  
+  <!--------------------------------SOW Loaction Table Starts--------------------------->
+      <apex:outputLabel style="width:90%;margin-left:5%;margin-right:5%;margin-top:5px;">Locations</apex:outputLabel>
+      <table style="width:90%;margin-left:5%;margin-right:5%;margin-top:10px;border:1px solid;text-align:center;font-size:12px;" cellspacing="0">
+       <tr style="background-color:#033346;color:white;font-style:italic">
+        <td style="width:18%;border:1px solid white;border-top:1px solid;border-left:1px solid;">Location </td>
+        <td style="width:5%;border:1px solid white;border-top:1px solid;">Base Plan</td>
+        <td style="width:10%;border:1px solid white;border-top:1px solid;">24/7 Coverage</td>
+        <td style="width:10%;border:1px solid white;border-top:1px solid;">*Remote MACD</td>
+        <td style="width:10%;border:1px solid white;border-top:1px solid;">Carrier Services Management</td>
+        <td style="width:17%;border:1px solid white;border-top:1px solid;">Commence Date</td>
+        <td style="width:15%;border:1px solid white;border-top:1px solid;">Paid Monthly</td>
+        <td style="width:15%;border:1px solid white;border-top:1px solid;border-right:1px solid;">Paid Annually</td>
+       </tr>
+       </table>
+       <table style="width:90%;margin-left:5%;margin-right:5%;border:1px solid;text-align:center;font-size:12px;line-height:30px;page-break-after:always;" cellspacing="0">
+        <tr class="oddrow"><!----rowclasses="oddrow,evenrow"------->
+        <td style="width:18%;">Edmonton </td>
+        <td style="width:5%;">
+          <apex:image value="{!$Resource.Tick_Mark}" width="50%"/></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:18%;">XX/XX/2015</td>
+        <td style="width:15%;">$XXXXXX</td>
+        <td style="width:15%;">$XXXXXX</td>
+       </tr>
+       <tr><!----rowclasses="oddrow,evenrow"------->
+        <td style="width:18%;">Camden </td>
+        <td style="width:5%;"><apex:image value="{!$Resource.Tick_Mark}" width="50%"/></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:17%;">XX/XX/2015</td>
+        <td style="width:15%;">$XXXXXX</td>
+        <td style="width:15%;">$XXXXXX</td>
+       </tr>
+       <tr class="oddrow"><!----rowclasses="oddrow,evenrow"------->
+        <td style="width:18%;">Edmonton </td>
+        <td style="width:5%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:18%;">XX/XX/2015</td>
+        <td style="width:15%;">$XXXXXX</td>
+        <td style="width:15%;">$XXXXXX</td>
+       </tr>
+       <tr><!----rowclasses="oddrow,evenrow"------->
+        <td style="width:18%;">Camden </td>
+        <td style="width:5%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:10%;"></td>
+        <td style="width:17%;">XX/XX/2015</td>
+        <td style="width:15%;">$XXXXXX</td>
+        <td style="width:15%;">$XXXXXX</td>
+       </tr>
+      </table>
+  <!--------------------------------SOW Loaction Table Ends--------------------------->
+  <!----------------------------Addendums Starts----------------------->
+  <div style="width:90%;margin-left:5%;margin-right:5%;margin-top:3%;">
+      <apex:outputlabel >XXXXXXXXXX</apex:outputlabel> <br/><!----------Account Name----->
+  </div>
+  <div style="width:90%;margin-left:5%;margin-right:5%;">
+      <apex:outputlabel >ADDENDUM to the Terms and Conditions <br/> </apex:outputlabel>
+      <apex:outputtext value="{!addendum}" escape="false"/><br/><br/><br/>
+  </div>
+  <table style="width:90%;margin-left:5%;margin-right:5%;">
+   <tr style="width:100%">
+    <td style="width:50%">
+      <table style="width:100%;">
+        <tr>
+             <td>XXXXXXXXXX </td>
+        </tr>
+        <tr>
+             <td>
+              <hr style="width:100%;margin-top:50px;"/>
+              <apex:outputtext >Print name and title</apex:outputtext>
+             </td>
+        </tr>
+        
+        <tr>
+          <td>
+             <hr style="width:100%;margin-top:50px;"/> 
+             <apex:outputtext >Signature</apex:outputtext>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <apex:outputtext >Date</apex:outputtext>
+           </td>
+         <!-- <td style="padding-top:60px;padding-right:-50px;">
+             <apex:outputtext >Date</apex:outputtext>
+          </td>-->
+        </tr>
+      </table>
+     </td>
+     
+     <td style="width:50%">
+      <table style="width:100%;">
+        <tr>
+             <td>CONTINUANT<!----Account Name------> </td>
+        </tr>
+        <tr>
+             <td>
+              <hr style="width:100%;margin-top:50px;"/>
+              <apex:outputlabel escape="false">Print name and title</apex:outputlabel>
+             </td>
+        </tr>
+        <tr>
+             <td>
+              <hr style="width:100%;margin-top:50px;"/>
+              <apex:outputtext >Signature</apex:outputtext>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <apex:outputtext >Date</apex:outputtext>
+             </td>
+        </tr>
+      </table>
+     </td>
+    </tr>
+  </table>
+  
+ </apex:form>
+ 
+</body> 
+</apex:page>

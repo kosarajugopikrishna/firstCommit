@@ -1,0 +1,16 @@
+<apex:page >
+<apex:form >
+
+function showSimpleDialog(){    
+   var sd = new SimpleDialog("Test"+Dialogs.getNextId(), false);    
+   sd.setTitle("Test Pop up");   
+   sd.createDialog();   
+   window.parent.sd = sd;   
+   sd.setContentInnerHTML("<p align='center'><img src='/img/msg_icons/warning32.png' style='margin:0 5px;'/></p><p align='center'>This is awesome!</p><p align='center'><br /><button class='btn' onclick='window.parent.sd.hide(); return false;'>cancel</button></p>");    
+   sd.show();   
+ }  
+ showSimpleDialog(); //open the popup  
+<apex:commandButton value="Save" action="{!showsimpledialog}"/>
+
+</apex:form>
+</apeX:page>

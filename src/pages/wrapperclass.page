@@ -1,0 +1,40 @@
+<apex:page controller="wrappercontroller" >
+ 
+<style>
+ .mystyle
+ {
+  background-color: blue;
+ }
+</style>
+
+<script>      
+        window.onload = function() { 
+            window.print();
+        }
+    </script>
+   
+
+
+<apex:form styleclass="mystyle">
+<!--<apex:iframe src="http://www.google.com" rendered="true" scrolling="true" id="theIframe" title="Wrapper Class" height="200px"/>-->
+    <apex:pageBlock id="c"  >
+    <apex:pageblockButtons >
+               <apex:commandButton value="show selected" status="i" action="{!show}" reRender="c"/>      
+        </apex:pageblockButtons>
+        <span><b>All Accounts</b></span>
+        <span style="padding-left:550px;"><b>Selected Accounts</b></span>
+        <apex:pageblocksection columns="2">
+        <apex:pageblocktable value="{!lstwrap}" var="Ewrap">
+        <apex:column headerValue="selected">
+        <apex:inputcheckbox value="{!Ewrap.check}"/>
+        </apex:column>
+        <apex:column value="{!Ewrap.acc.name}"/>
+        </apex:pageblocktable>
+        <apex:pageblocktable value="{!selected}" var="s">
+    <apex:column value="{!s.name}"/>
+    </apex:pageblocktable>
+        </apex:pageblocksection>
+    </apex:pageBlock>
+  
+</apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page standardController="account" >
+<apex:form >
+<apex:pageBlock mode="edit" >
+<apex:pageBlockSection title="Account Section">
+<apex:outputText value="{!account.id}"></apex:outputText>        
+     <apex:outputText value="{!account.name}"></apex:outputText>        
+         <apex:outputText value="{!account.phone}"></apex:outputText>        
+      <apex:outputText value="{!account.billingcity}"></apex:outputText>        
+    </apex:pageBlockSection>
+
+</apex:pageBlock>  
+</apex:form>    
+</apex:page>

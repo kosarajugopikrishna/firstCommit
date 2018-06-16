@@ -1,0 +1,13 @@
+<apex:page standardController="account" >
+<apex:form >
+ <apex:pageBlock >
+  <apex:pageBlockSection >
+   <apex:inputField value="{!account.name}"/>
+    <apex:commandbutton value="save" action="{!save}" onclick="window.open('/apex/getvalue');window.top.close();" />
+  <!--<apex:commandButton value="Search Again" onclick="window.open('/apex/customreport', 'myexample');" />-->
+       <apex:commandButton value="Search Again" onclick="return confirm('Are you want to save');" />
+  </apex:pageBlockSection>
+ 
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

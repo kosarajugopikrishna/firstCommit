@@ -1,0 +1,21 @@
+<apex:page standardController="Account" recordSetVar="accs">
+ <apex:form >
+   <apex:sectionHeader title="Account" subtitle="Records"/>
+   <apex:pageBlock >
+   <!----------   datalist----------------->
+   <apex:pageblocktable value="{!accs}" var="acc" id="datalist">
+     <apex:column value="{!acc.Name}"/>
+    <apex:column value="{!acc.phone}"/>
+    <apex:column value="{!acc.BillingStreet}"/>
+    <apex:column value="{!acc.Type}"/>
+    <apex:column value="{!acc.BillingCity}"/>
+   
+   </apex:pageblocktable>   
+    <center><apex:commandLink value="First" action="{!first}" reRender="datalist"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Next" action="{!next}" reRender="datalist"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Previous" action="{!previous}" reRender="datalist"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Last" action="{!last}" reRender="datalist"/>
+   </center>
+    </apex:pageblock>
+   </apex:form> 
+</apex:page>

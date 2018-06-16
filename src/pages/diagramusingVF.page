@@ -1,0 +1,11 @@
+<apex:page sidebar="false" Controller="Sample" showHeader="true" id="pg">
+<apex:chart height="750" width="800" legend="true" data="{!data}">
+    <apex:legend position="left"/>
+    <apex:axis type="Radial" position="radial">
+        <apex:chartLabel />
+    </apex:axis>
+    <apex:radarSeries xField="memName" yField="tenthPercent" tips="true" opacity="0.4"/>
+    <apex:radarSeries xField="memName" yField="twelthPercent" tips="true" opacity="0.4"/>
+    <apex:radarSeries xField="memName" yField="age" tips="true" markerType="cross" strokeWidth="2" strokeColor="#f33" opacity="0.4"/>
+</apex:chart>
+</apex:page>

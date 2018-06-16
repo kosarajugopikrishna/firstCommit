@@ -1,0 +1,5 @@
+<apex:page controller="test">
+<apex:form >
+    <apex:outputLabel value="{!t}" />
+    </apex:form>
+</apex:page>

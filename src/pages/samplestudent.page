@@ -1,0 +1,15 @@
+<apex:page standardController="Student__c">
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockButtons >
+  <apex:commandButton value="save" action="{!save}" onclick="return windows.open(/apex/passparam)"/>
+  </apex:pageBlockButtons>
+   <apex:pageblockSection >
+   <apex:inputField value="{!Student__c.First_Name__c}"/>
+   <apex:inputField value="{!Student__c.Last_Name__c}"/>
+    <apex:inputField value="{!Student__c.Name__c}"/>
+    <apex:inputField value="{!Student__c.Phone__c}"/>
+   </apex:pageblockSection>
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>

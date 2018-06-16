@@ -1,0 +1,52 @@
+<apex:page controller="PopUp_forCustomLookupCls" showHeader="false" sidebar="false">
+
+<apex:form >
+
+<script type="text/javascript">
+   function show(){
+var checkedValue = null; 
+var row = document.getElementsByClassName("list courseTable");
+
+var tableId= row[0].id;
+for(var i = 0; i<document.getElementById(tableId).rows.length; i++)   
+{
+debugger;
+var a = document.getElementById(tableId).rows[i].cells[0];
+var z = a.firstChild.checked;
+if(z==true)
+{
+checkedValue = checkedValue+","+ document.getElementById(tableId).rows[i].cells[1].innerText;
+}
+
+}
+if(checkedValue != null)
+checkedValue = checkedValue.replace("null,","");
+    
+var winMain=window.opener; 
+if (winMain==null) 
+{ 
+    winMain=window.parent.opener; 
+} 
+   
+    winMain.closePopup(checkedValue,winMain); 
+}
+   
+</script>
+    <apex:pageBlock >
+    <apex:pageblockButtons location="bottom">
+               <apex:commandButton value="Save" onclick="show();"/>      
+    </apex:pageblockButtons>
+        <apex:pageblocksection columns="2" title="Courses Information" collapsible="false">
+
+        <apex:pageblocktable value="{!lstwrap}" var="Ewrap" styleclass="courseTable">
+       <apex:column headerValue="Select">
+        <apex:inputcheckbox styleclass="messageCheckbox" value="{!Ewrap.acc.name}"/>
+       </apex:column>
+        <apex:column headervalue="Courses" value="{!Ewrap.acc.name}" id="coursename"/>
+        </apex:pageblocktable>
+
+      </apex:pageblocksection>
+    </apex:pageBlock>
+  
+</apex:form>
+</apex:page>

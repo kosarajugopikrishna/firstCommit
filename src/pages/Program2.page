@@ -1,0 +1,9 @@
+<apex:page >
+
+    <apex:outputPanel layout="block" style="font-weight:bold">
+
+        Hello World!
+
+    </apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page controller="customcontroller1">
+<apex:form >
+    <apex:pageblock >
+        <apex:pageBlockTable value="{!conlist}" var="M">
+            <apex:column value="{!M.Name}"/>
+        </apex:pageBlockTable>
+    </apex:pageblock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<apex:page Controller="js">
+ <script>
+ </script>
+ <apex:form >
+  <apex:selectlist size="1">
+   <apex:selectOptions value="{!items}"/>
+   
+  </apex:selectlist>
+ </apex:form>
+</apex:page>

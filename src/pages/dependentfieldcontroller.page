@@ -1,0 +1,21 @@
+<apex:page StandardController="Account" sidebar="false" showheader="false">
+<apex:form >
+<apex:sectionHeader title="New Contact"/>
+<apex:pageBlock title="Contact Edit"  mode="edit"  id="thepageblock" >
+<apex:pageBlockButtons location="bottom" >
+<apex:commandButton value="save"/>
+<apex:commandButton value="save & new"/>
+<apex:commandButton value="Cancel"/>
+</apex:pageBlockButtons>
+<apex:pageBlockSection >
+<apex:inputfield value="{!account.Controlling__c}">
+<apex:actionsupport event="onchange" reRender="thepagblock"/>
+</apex:inputfield>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Dependent Field" >
+
+<apex:inputfield value="{!account.Dependent__c}"/>
+</apex:pageBlockSection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

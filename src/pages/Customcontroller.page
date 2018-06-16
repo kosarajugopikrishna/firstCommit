@@ -1,0 +1,22 @@
+<apex:page controller="AccountCustomController" tabStyle="Account">
+ <apex:sectionHeader title="Account Edit" subtitle="New Account"/>
+ <apex:form >
+   <apex:pageBlock title="Account Edit" mode="edit">
+     <apex:pageBlockButtons >
+       <apex:commandButton value="Save" action="{!save}"/>
+     </apex:pageBlockButtons>
+     <apex:pageBlockSection title="Account Information" >
+      
+       <apex:inputField value="{!acc.Name}" />
+        <apex:inputField value="{!acc.NumberOfEmployees}" />
+         <apex:inputField value="{!acc.AnnualRevenue}" />
+          <apex:inputField value="{!acc.website}" />
+           <apex:inputField value="{!acc.Type}"/>
+       <apex:inputfield value="{!acc.Industry}" />
+       </apex:pageblocksection>
+       <apex:pageBlockSection title="Description Information" columns="1">
+       <apex:inputfield value="{!acc.Description}" style="height:44px;width:250px;"/>
+     </apex:pageBlockSection>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

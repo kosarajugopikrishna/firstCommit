@@ -1,0 +1,40 @@
+<apex:page standardController="Training_Session__c" extensions="CertificateGeneratecls" contentType="application/doc#.doc" cache="true">
+    <apex:pageMessages />
+    <html>
+        <body>
+            <apex:form >
+                
+                <div style="font-size: 32px;">
+                                 <apex:outputLabel > CERTIFICATE OF COMPLETION
+                                 </apex:outputlabel><br/><br/><br/>
+                </div>
+                
+               <div style="font-size: 32px;">
+                                 <apex:outputLabel > THIS AWARD CERTIFIES THAT 
+                                 </apex:outputlabel><br/><br/><br/>
+                </div>
+                <br/><br/>
+                <div style="font-size: 32px;">
+                                 <apex:outputtext >  {!studentnames}
+                                 </apex:outputtext><br/><br/><br/>
+                </div>
+                <div style="font-size: 32px;">
+                   <apex:outputlabel style="font-size:20px;font-weight:bold">
+                       HAS SUCCESSFULLY COMPLETED THE COURSE OF
+                    </apex:outputlabel><br/><br/>    
+                </div>
+                <div style="font-size: 32px;">
+                   <apex:outputlabel style="font-size:20px;font-weight:bold">
+                       HAS SUCCESSFULLY COMPLETED THE COURSE OF
+                    </apex:outputlabel><br/><br/>    
+                </div>
+                 <div style="font-size: 32px;">
+                   <apex:outputlabel style="font-size:20px;text-decoration: underline;">
+                          {!Training_Session__c.Training_Course__r.name}
+                    </apex:outputlabel><br/><br/><br/>   
+                </div>
+
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

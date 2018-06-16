@@ -1,0 +1,791 @@
+<!--=========================================================================
+    @ Created By     : XXXXXXX
+    @ Created Date   : 12/09/2015
+    @ Version        : 1.0
+    @ Description    : To generate quote as PDF format
+  =========================================================================-->
+
+
+<apex:page standardController="Account" showHeader="false" sidebar="false" standardStylesheets="false"  renderAs="pdf"> <!--  renderAs="pdf" -->
+            
+        <apex:stylesheet value="{!URLFOR($Resource.Quote_PDFStyles)}"/> 
+        
+              <!--
+              <style >
+                .email table{
+                    width:100%;
+                    border-collapse:collapse;
+                    margin-bottom:10px;
+                }
+                
+                .email table.boxed{
+                   
+                   border-left:1px solid #3B5E91;
+                   border-top:1px solid #3B5E91;  
+                }
+                
+                .email table .padding{
+                   padding-top:0px;
+                }
+                
+                .quoteheaderleftlabels{
+                    font-weight: bold;                    
+                    width:40%;
+                }
+                .boxed{
+                    padding-left:5px;
+                    width:60%;
+                }
+                
+                @page {
+                    @bottom-right {content:"Page " counter(page) " of " counter(pages);
+                               font-family:Verdana, Arial, Helvetica, sans-serif;
+                               font-size:7.5pt;
+                               font-weight:bold;
+                               padding-bottom;25px;
+                  }
+                }
+               
+              </style>
+       -->
+                                   
+        <!-- Quote Title -->
+        <apex:variable var="lblQuote"                     value="Quote" />
+        
+    
+        <!-- Quote Header -->
+        <apex:variable var="lblClientInfo"                       value="Client Information " />
+        <apex:variable var="lblAgreementinfo"                       value="Company Agreement Information" />
+        
+        
+        
+        
+        <!-- actual code strats from here-->
+        <div  style="font-family:Helvetica;">  <!-- border:5px solid #808080 ; -->
+            <!-- LOGO Starts-->
+            <table Style="width:98%;margin-left:1%;margin-right:1%;">
+                <tr >
+                    <td width="25%">
+                        <apex:outputPanel >                         
+                            <apex:image value="{!$Resource.Listrak_Logo}" style="height:30px;width:150px;margin-left:10px;"/>
+                        </apex:outputPanel>
+                    </td>
+                    <td width="25%">
+                        <p style="font-size:11px ;font-family: Times;"> 529 E Main St, Lititz, PA 17543, United States </p>
+                    </td>
+                    
+                    <td align="right">
+                        <h1  style="font-size:24px;margin-right:40px;color:#0F62CC"> Quotation </h1>
+                    </td>
+                </tr>
+            </table>
+            <!-- LOGO Ends -->
+            
+            <!-- Quote Header Info -->           
+            <div >
+            <table Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #808080;">
+                <tr style="background-color: #FABB3E;color:black"> <!-- #B8DBFF -->
+                   
+                    <th style="width: 40%;font-size:16px;"><center>{!lblClientInfo}</center></th>
+                    <th style="width: 60%;font-size:16px;"><center>{!lblAgreementinfo}</center></th>                    
+                    
+                </tr>
+                <tr style="width:100%;margin-left:2px;margin-right:2px;margin-top:100px;border:1px solid #808080;font-size:11px;">
+                   
+                    <td  style="width: 40%;border:1px solid #808080;">
+                        <table style="margin-top:0px;">
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Company Name </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Listrak Customer Number </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Number of Sites </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Number of Authorized Users </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Billing Contact Name </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Billing Phone </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Billing Email </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Street Address </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> City </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> State </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Zip </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Country </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                        </table>
+                    </td>
+                    <td  style="width: 60%;border:1px solid #808080;">
+                        <table>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Title of Listrak Agreement ("Agreement") </td>
+                                <td Class="quoteheaderrightlabels"> Listrak®   SOFTWARE AS A SERVICE ("SaaS") SUBSCRIPTION AND SERVICES AGREEMENT and/or "PROFESSIONAL SERVICES AGREEMENT"
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Term of Order Form </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX</td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Name of Sales Manager </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Currency of Order Form </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Alexa Ranking </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Ecommerce Platform </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Estimated Number of Monthly Unique Visitors </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Estimated Average Order Value (AOV) </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Estimated Number of Monthly Email Sends </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXX </td>
+                                
+                            </tr>
+                            <tr>
+                                <td Class="quoteheaderleftlabels"> Will Client issue separate PO (Y/N) </td>
+                                <td Class="quoteheaderrightlabels"> XXXXXXXX </td>
+                                
+                            </tr>
+                            
+                        </table>
+                    </td>                                       
+                </tr>
+                           
+            </table>
+            </div>
+            
+                        
+            <!-- Quote first section Starts -->           
+            <table  Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #808080;margin-top:8px">
+                <tr style="width: 100%;background-color: #FABB3E;color:black" >                   
+                    <th style="width:100%;font-size:16px;">
+                    <!--<apex:outputLabel style="margin-left:100px"> Listrak Integrated Digital Marketing Platform and Email Marketing License </apex:outputLabel>-->
+                    <center> Listrak Integrated Digital Marketing Platform and Email Marketing License </center>
+                    </th>
+                                                                              
+                </tr>
+                <tr Style="width:100%;">                   
+                    <td>
+                         
+                         <table Style="width:100%;border-collapse: collapse;" border="1" >
+                            <tr style="width: 100%;background-color: #C6C6C6;color:white">                   
+                                <th align="center" style="width: 8%;font-size:12px;color:black">Item #</th> 
+                                <th align="center" style="width: 8%;font-size:12px;color:black">New or Renewal</th>
+                                <th align="center" style="width: 6%;font-size:12px;color:black">No of Payments</th> 
+                                <th align="center" style="width: 10%;font-size:12px;color:black">Unit Price (Net)</th>
+                                <th align="center" style="width: 30%;font-size:12px;color:black">Product Description</th>
+                                <th align="center" style="width: 10%;font-size:12px;color:black">Billing Cycle</th> 
+                                <th align="center" style="width: 10%;font-size:12px;color:black">Billing Start Date</th>
+                                <th align="center" style="width: 18%;font-size:12px;color:black">Total License Fees (Excluding Taxes)</th>                                                                                        
+                            </tr> 
+                            <tr>                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:30%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                            <tr>                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:30%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                            <tr>                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:30%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                           <tr>                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:30%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr>        
+                        </table>
+                        
+                        <!-- Total Amounts -->
+                        <table Style="background-color:white;width:100%;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                <th  style="width: 84%;">
+                                    <!--<div align="right" Style="margin-right:10px"> TOTAL Listrak Integrated Digital Marketing Platform and Email Marketing License </div>-->    
+                                    <div align="right" Style="margin-right:10px;font-size:10px;color:black;"> TOTAL INTEGRATED DIGITAL MARKETING PLATFORM AND EMAIL MARKETING LICENSE </div>
+                                </th> 
+                                
+                                <th style="width: 16%;font-size:12px;color:black"><div align="right"> $00.00 </div></th> 
+                            </tr> 
+                        </table> 
+                        
+                        <!-- Initial Section -->
+                        <table Style="background-color:white;width:100%;height:40px;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                <th  style="width: 82%;font-size:12px;color:black;">
+                                    <div align="right" Style="margin-right:40px;margin-top:25px"> Initials  </div>
+                                </th> 
+                                 
+                            </tr> 
+                        </table>  
+                        
+                    </td>                                                   
+                </tr>
+            </table>
+            <!-- Ends -->
+            
+            
+            <!-- Quote 2nd section Starts -->           
+            <table  Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #808080;margin-top:8px;">
+                <tr style="width: 100%;background-color: #FABB3E;color:black">                   
+                    <th style="width:100%;font-size:16px;"><center>Listrak Ecommerce Software License</center></th>                                                           
+                </tr>
+                <tr Style="width:100%;">                   
+                    <td>
+                         <table Style="width:100%;border-collapse: collapse;" border="1">    
+                            <tr style="width: 100%;background-color: #C6C6C6;color:white">                   
+                                <th align="center"  style="width: 8%;font-size:12px;color:black">Item #</th> 
+                                <th align="center"  style="width: 8%;font-size:12px;color:black">New or Renewal</th>
+                                <th align="center"  style="width: 6%;font-size:12px;color:black">No of Payments</th> 
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Unit Price (Net)</th>
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Domain</th>
+                                <th align="center"  style="width: 20%;font-size:12px;color:black">Product Description</th>
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Billing Cycle</th> 
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Billing Start Date</th>
+                                <th align="center"  style="width: 18%;font-size:12px;color:black">Total Contracted License Fee (Excluding Taxes)</th>                                                                                        
+                            </tr> 
+                            <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                            <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                            <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                            <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr>                   
+                        </table>
+                        
+                        <!-- Total Amounts -->
+                        <table Style="background-color:white;width:100%;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                <th  style="width: 84%;font-size:10px;color:black;">   <!-- border-right:1px solid #808080; -->
+                                    <div align="right" Style="margin-right:10px"> TOTAL ECOMMERCE SOFTWARE LICENSE </div>
+                                </th> 
+                                <th  style="width: 16%;font-size:12px;color:black"><div align="right"> $00.00 </div></th> 
+                            </tr> 
+                        </table> 
+                        
+                        <!-- Initial Section -->
+                        <table Style="background-color:white;width:100%;height:40px;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                <th  style="width: 82%;font-size:12px;color:black;">
+                                    <div align="right" Style="margin-right:40px;margin-top:25px"> Initials  </div>
+                                </th> 
+                                 
+                            </tr> 
+                        </table>  
+                        
+                         
+                    </td>                                                   
+                </tr>
+            </table>
+            <!-- Ends -->
+             
+            
+            <!-- Quote 3rd section Starts -->           
+            <table  Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #808080;margin-top:8px;margin-bottom:10px">
+                <tr style="width: 100%;background-color: #FABB3E;color:black">                   
+                    <th style="width:100%;font-size:16px;"><center>Listrak Ecommerce Professional Services</center></th>                                                           
+                </tr>
+                <tr Style="width:100%;">                   
+                    <td>
+                         <table Style="width:100%;border-collapse: collapse;" border="1">    
+                            <tr style="width: 100%;background-color: #C6C6C6;color:white">                   
+                                <th align="center"  style="width: 8%;font-size:12px;color:black">Item #</th> 
+                                <th align="center"  style="width: 8%;font-size:12px;color:black">New or Renewal</th>
+                                <th align="center"  style="width: 6%;font-size:12px;color:black">No of Payments</th> 
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Unit Price (Net)</th>
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Domain</th>
+                                <th align="center"  style="width: 20%;font-size:12px;color:black">Product Description</th>
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Billing Cycle</th> 
+                                <th align="center"  style="width: 10%;font-size:12px;color:black">Billing Start Date</th>
+                                <th align="center"  style="width: 18%;font-size:12px;color:black">Total Contracted Professional Fee (Excluding Taxes)</th>                                                                                        
+                            </tr> 
+                           <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                            <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr>  
+                           <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr> 
+                           <tr >                   
+                                <td align="right" style="width:8%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:8%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:6%;font-size:11px;color:black">xxxxx</td> 
+                                <td align="right" style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td style="width:20%;font-size:11px;color:black">xxxxx</td>  
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td> 
+                                <td style="width:10%;font-size:11px;color:black">xxxxx</td>
+                                <td align="right" style="width:18%;font-size:11px;color:black">xxxxx</td>                                                                                       
+                            </tr>                     
+                        </table>
+                        
+                        <!-- Total Amounts -->
+                        <table Style="background-color:white;width:100%;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                
+                                <th  style="width: 50%;">
+                                    <div style="font-size:7px;color:black;margin-left:10px"> All Professional Services fees designated as time and material are billed according to prevailing rates. </div>
+                                </th>
+                                <th  style="width: 34%;font-size:10px;color:black;">
+                                     <div align="right" Style="margin-right:10px;margin-left:10px"> TOTAL PROFESSIONAL SERVICES </div>
+                                </th>
+                                
+                                <th  style="width: 16%;font-size:12px;color:black"><div align="right"> $00.00 </div></th> 
+                            </tr> 
+                        </table>                                                 
+                        
+                        <!-- Total Contract Value Section -->
+                        <table Style="background-color:white;width:100%;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                <th  style="width: 84%;font-size:10px;color:black;">
+                                    <div align="right" Style="margin-right:10px"> FULL CONTRACT VALUE  </div>
+                                </th> 
+                                <th  style="width: 16%;font-size:12px;color:black"><div align="right"> $00.00 </div></th> 
+                            </tr> 
+                        </table> 
+                        
+                        <!-- Initial Section -->
+                        <table Style="background-color:white;width:100%;height:40px;border:1px solid #808080;">    
+                            <tr style="width: 100%;">
+                                <th  style="width: 82%;font-size:12px;color:black">
+                                     <div align="right" Style="margin-right:40px;margin-top:25px"> Initials  </div>
+                                </th> 
+                                 
+                            </tr> 
+                        </table>  
+                         
+                    </td>                                                   
+                </tr>
+            </table>
+            <!-- Ends -->            
+        </div> 
+        
+        
+        <!-- =============> Extra informations sections <============= -->
+        
+        <!-- First Section -->
+        
+        <div  style="font-family: Times;width:100%;font-size:11px;">
+            
+            <table >
+                <div Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #808080 ;">
+                <table>
+                    <tr style="width:100%;" >
+                        
+                        <td style="width:86%"> <apex:outputLabel Style="font-style: italic;font-weight: bold;font-family:Helvetica;">PAYMENT TERMS/BILLING POLICY: </apex:outputLabel>  All fees shall be due and payable upon receipt of invoice. Client agrees to pay the Full Contract Value of this Sales Order Form within the terms of the Agreement.  Listrak reserves the right to suspend service if the account is 45 days past due. Suspension does not relieve client obligation to pay Listrak for full annualized value of each solution. </td>
+                        <td style="width:7%"> XXXX </td>
+                        <td style="width:7%"> XXXX </td>
+                        
+                    </tr>
+                </table>
+                <hr></hr>
+                <table>
+                    <tr style="width:100%;">
+                        <td style="width:86%"> <apex:outputLabel Style="font-style: italic;font-weight: bold;">RE-PLATFORMING: </apex:outputLabel> Please note Listrak will assess an integration fee at its then prevailing rate for replatforming should client migrate to a new ecommerce platform. </td>
+                        <td style="width:7%"> XXXX </td>
+                        <td style="width:7%"> XXXX </td>
+                        
+                    </tr>
+                </table>
+                <hr></hr>
+                <table>
+                    <tr style="width:100%;">
+                        <td style="width:86%"> <apex:outputLabel Style="font-style: italic;font-weight: bold;">LANGUAGE: </apex:outputLabel> Unless otherwise indicated, the scope of this Sales Order form includes 1 (one) language (English).  Additional languages require an additional Statement of Work for Listrak Professional Services. </td>
+                        <td style="width:7%"> XXXX </td>
+                        <td style="width:7%"> XXXX </td>
+                    </tr>
+                </table>
+                <hr></hr>
+                <table>
+                    <tr style="width:100%;">
+                        <td> <apex:outputLabel Style="font-style: italic;font-weight: bold;">TRAINING: </apex:outputLabel> Listrak provides a total of three (3) personalized, training hours on the Listrak application, via remote conferencing. Additional training sessions with Listrak’s Education team may be scheduled and are billable at Listrak’s prevailing rates. At no additional cost, Listrak offers a vast library of self-paced training, available on-demand within the Listrak application. As well, training webinars are offered throughout the year to help end-users optimize their knowledge of all the features of Listrak. </td>
+                        
+                    </tr>
+                    
+                </table>
+                <hr></hr>
+                <table>
+                    <tr style="width:100%;">
+                        <td> 
+                            <apex:outputLabel Style="font-style: italic;font-weight: bold;"> INSTRUCTIONS: </apex:outputLabel> This Order Form may be executed in counterparts and exchanged by facsimile or electronically scanned copy.  Each such counterpart shall be deemed to be an original and all of which together shall constitute one and the same Order Form.  Terms and conditions of products and/or services provided by Listrak hereunder are governed by the Agreement referred to above.                         
+                            <p>(1) If not executing through EchoSign, please fax one executed copy of this Order Form (and corresponding Purchase Order, if applicable) to Listrak at (717) 627-6087 ATTN: Sales, and (2) mail two executed copies of this Order Form (and a corresponding Purchase Order, if applicable) to Listrak, 529 East Main Street, Lititz, PA 17543 ATTN: Sales Contracts.  </p>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </table>
+        </div>
+            
+            <!-- 2nd Section -->
+        
+        <div  style="page-break-after:always;font-family: Times;font-size:11px;"> <br/>
+            
+            <table Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #808080;">
+                
+                <tr >                  
+                    <th  style="width: 50%;font-size:12px;font-weight:bold;text-decoration: underline;">
+                         Client Approval By Authorized Representative (LISTRAK) 
+                    </th>
+                    <th style="width: 50%;font-size:12px;font-weight:bold;">
+                    <apex:outputLabel style="text-decoration: underline;">Company (CLIENT):</apex:outputLabel> <apex:outputLabel style="margin-left:5px;">XXX</apex:outputLabel>  
+                    </th>                                       
+                </tr>
+                
+                
+                <tr style="width:100%;margin-left:2px;margin-right:2px;margin-top:100px;border:1px solid #808080;font-size:11px;">
+                    
+                    <td  style="width: 50%;border-radius: 1em 1em 1em 1em;">
+                        <table >
+                            <!--
+                            <tr>
+                                <th  style="font-size:12px;font-weight:bold">
+                                    <center> Client Approval By Authorized Representative (LISTRAK) </center>
+                                </th>
+                            </tr>
+                            -->
+                            
+                            <tr style="margin-top:15px;height:30px">
+                                <td >  
+                                    <apex:outputLabel Style="margin-left:35px;font-size:12px;font-weight:bold;" > Name </apex:outputLabel>
+                                    
+                                </td>
+                                <td >                                      
+                                    <apex:outputLabel > XXXXXXXXX </apex:outputLabel>
+                                </td>                                                               
+                            </tr>
+                            <tr style="margin-top:15px;height:30px">
+                                <td >  
+                                    <apex:outputLabel Style="margin-left:35px;font-size:12px;font-weight:bold;" > Title </apex:outputLabel>
+                                    
+                                </td>
+                                <td >  
+                                    
+                                    <apex:outputLabel > XXXXXXXXX </apex:outputLabel>
+                                </td>                                                              
+                            </tr>
+                            <tr style="margin-top:15px;height:50px">
+                                <td >  
+                                    <apex:outputLabel Style="margin-left:35px;font-size:12px;font-weight:bold;" > Sender Signature  </apex:outputLabel>
+                                    
+                                </td> 
+                                <td >  
+                                    
+                                    <apex:outputLabel > _________________________  </apex:outputLabel>
+                                </td>                                                              
+                            </tr>
+                            
+                        </table>
+                    </td>
+                    <td  style="width: 50%;border-radius: 1em 1em 1em 1em;">   <!-- border:1px solid #808080; -->
+                        <table >
+                            <!--
+                            <tr>
+                                <th  style="font-size:12px;font-weight:bold">
+                                    <center> Company (CLIENT) : XXXXX </center>
+                                </th>
+                            </tr>
+                            -->
+                            <tr style="margin-top:15px;height:30px">
+                                <td >  
+                                    <apex:outputLabel Style="margin-left:35px;font-size:12px;font-weight:bold;" > Name </apex:outputLabel>
+                                    
+                                </td>
+                                <td >                                      
+                                    <apex:outputLabel > XXXXXXXXX </apex:outputLabel>
+                                </td>                                                               
+                            </tr>
+                            <tr style="margin-top:15px;height:30px">
+                                <td >  
+                                    <apex:outputLabel Style="margin-left:35px;font-size:12px;font-weight:bold;" > Title </apex:outputLabel>
+                                    
+                                </td>
+                                <td >  
+                                    
+                                    <apex:outputLabel > XXXXXXXXX </apex:outputLabel>
+                                </td>                                                              
+                            </tr>
+                            <tr style="margin-top:15px;height:50px">
+                                <td >  
+                                    <apex:outputLabel Style="margin-left:35px;font-size:12px;font-weight:bold;" > Signer Signature  </apex:outputLabel>
+                                    
+                                </td> 
+                                <td >  
+                                    
+                                    <apex:outputLabel > _________________________  </apex:outputLabel>
+                                </td>                                                              
+                            </tr>
+                            
+                        </table>
+                    </td>                                  
+                </tr>
+                           
+            </table><br/>                
+        </div>
+        
+        <!--         ===========> ABS Section <===========    -->
+        
+        <div  style="page-break-after:always;font-size:13px;font-family: Times;border:1px solid #808080;width:98%;margin-left:1%;margin-right:1% ;">
+            <!-- LOGO Starts-->
+            <table Style="width:98%;margin-left:1%;margin-right:1%;">
+                <tr >
+                    <td width="25%">
+                        <apex:outputPanel >                         
+                            <apex:image value="{!$Resource.Listrak_Logo}" style="height:30px;width:150px;margin-left:10px;"/>
+                        </apex:outputPanel>
+                    </td>
+                    
+                    
+                    <td width="75%">
+                        <h1 style="color:#000000;font-size:20px;">ADVANCED BROWSE SEGMENTATION</h1>
+                    </td>
+                </tr>
+            </table>
+            <!-- LOGO Ends -->
+            
+            <!-- ABS Contenent - Scope -->
+            <div Style="width:98%;margin-left:1%;margin-right:1%;font-family: Times">
+                <apex:outputLabel Style="margin-left:10px;font-size:20px;font-weight:bold;"> Scope </apex:outputLabel>
+                <ul >
+                  <li>Advanced Browse Segmentation (ABS) is a data sync solution that provides you with insight into the product browsing patterns of your customers.</li>
+                  <li>Advanced Browse Segmentation supports the dynamic synchronization of customer data, including the following data points</li>
+                      <ul style="margin-left:70px;list-style-type: square">
+                          <li> Last browsed brand </li>
+                          <li> Last browsed category </li>
+                          <li> Last browsed subcategory </li>
+                          <li> Last site visit </li>
+                          <li> Most browsed brand </li>
+                          <li> Most browsed category </li>
+                          <li> Most browsed subcategory </li>
+                          <li> Recent items browsed </li>
+                          <li> Last browsed brand </li>
+                          <li> Recent items browsed overflow </li>                                                   
+                      </ul>
+                  <li>Listrak will provide the necessary information required to upload the order/product data daily via FTP.</li>
+                  <li>Listrak will provide the necessary information required (JavaScript or Listrak module) to integrate your website with conversion and browse activity tracking if this step has not already been completed for an existing Listrak solution. Listrak will perform up to two (2) rounds of technical integration verification.</li>
+                      <ul style="margin-left:70px;list-style-type: square">
+                          <li>Email Capture Points: In order to capture the email address of a visitor who has browsed and abandoned on your website, you need to install email capture code to all available forms on your website. If this has previously been completed for a solution such as Shopping Cart Abandonment, all forms should already be set-up; if not, Listrak will provide you with any necessary code to integrate.</li>
+                      </ul>
+                  <li>Set up of client’s account in Listrak to include:</li>
+                      <ul style="margin-left:70px;list-style-type: square">
+                          <li> Segmentation </li>
+                      </ul>
+                  <li>Listrak will thoroughly complete all pre-deployment testing.</li>
+              </ul>
+              <div style="Margin-top:45px; Margin-left:35px; margin-bottom:25px">
+                  <apex:outputLabel Style="Font-style:italic"> I hereby acknowledge I have read and understood the contents of this scope. </apex:outputLabel>
+                   <apex:outputLabel style="Margin-left:45px;font-weight:bold;"> Initials </apex:outputLabel>
+              </div>
+            </div>
+        </div>  
+        
+        
+        <!--         ===========> ARS Section <===========    -->
+        
+        <div  style="font-size:13px;font-family: Times;border:1px solid #808080;width:98%;margin-left:1%;margin-right:1% ;">
+            <!-- LOGO Starts-->
+            <table Style="width:98%;margin-left:1%;margin-right:1%;">
+                <tr >
+                    <td width="25%">
+                        <apex:outputPanel >                         
+                            <apex:image value="{!$Resource.Listrak_Logo}" style="height:30px;width:150px;margin-left:10px;"/>
+                        </apex:outputPanel>
+                    </td>
+                    
+                    
+                    <td width="75%">
+                        <h1 style="color:#000000;font-size:20px;">ADVANCED RETAIL SEGMENTATION</h1>
+                    </td>
+                </tr>
+            </table>
+            <!-- LOGO Ends -->
+            
+            <!-- ARS Contenent - Scope -->
+            <div Style="width:98%;margin-left:1%;margin-right:1%;">
+                <apex:outputLabel Style="margin-left:10px;font-size:20px;font-weight:bold;"> Scope </apex:outputLabel>
+                <ul >
+                  <li>Advanced Retail Segmentation (ARS) is a data sync solution that provides you with insight into the behavioral and purchasing patterns of your customers.</li>
+                  <li>Advanced Retail Segmentation supports the dynamic synchronization of customer data, including the following data points.</li>
+                      <ul style="margin-left:70px;list-style-type: square">
+                          
+                          <li> Customer Flag </li>
+                          <li> Order Count </li>
+                          <li> Average number of reorder days </li>
+                          <li> Last, first, and projected order date </li>
+                          <li> Spent one (1), two (2) or three (3) year </li>
+                          <li> Spent total </li>
+                          <li> Recent items purchased </li>
+                          <li> Average order value </li>
+                          <li> Brand </li>
+                          <li> Category </li>
+                          <li> Meta Fields: Up to five (5) additional meta information fields </li> 
+                                                                            
+                      </ul>
+                  <li>Listrak will provide the necessary information required to upload the order/product data daily via FTP.</li>
+                  <li>Listrak will provide the necessary information required (JavaScript or Listrak module) to integrate your website with conversion tracking if this step has not already been completed for an existing Listrak solution. Listrak will perform up to two (2) rounds of technical integration verification.</li>
+                  <li>Set up of client’s account in Listrak to include:</li>
+                      <ul style="margin-left:70px;list-style-type: square">
+                          <li>Credentials for receiving data from custom platforms (if necessary)</li>
+                          <li>Segmentation</li>
+                      </ul>
+                  <li>Listrak will thoroughly complete all pre-deployment testing.</li>                                       
+              </ul>
+              <div style="Margin-top:45px; Margin-left:35px; margin-bottom:25px">
+                  <apex:outputLabel Style="Font-style:italic"> I hereby acknowledge I have read and understood the contents of this scope. </apex:outputLabel>
+                   <apex:outputLabel style="Margin-left:45px;font-weight:bold;"> Initials </apex:outputLabel>
+              </div>
+            </div>
+        </div>        
+        
+        
+        
+              
+</apex:page>

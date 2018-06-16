@@ -1,0 +1,3 @@
+<apex:page standardController="contact" >
+  <apex:listViews type="Account"/>
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page controller="jspage" >
+<apex:form >
+<script>
+function sfun()
+{
+myjs();
+alert('Are you sure ?');
+}
+
+</script>
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:inputField value="{!acc.name}" id="r" required="false"/>
+<apex:commandButton value="Go" onclick="sfun()" reRender="r">
+<apex:actionFunction name="myjs" action="{!jssave}"/>
+</apex:commandButton>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

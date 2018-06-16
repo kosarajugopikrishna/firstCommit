@@ -1,0 +1,98 @@
+<apex:page standardcontroller="Session_Student__c"  sidebar="false"  tabStyle="Session_Student__c" extensions="TestStudents">
+    
+<apex:form >
+  <style type="text/css">
+
+  .custompopup  
+  {  
+  
+ 
+  //border-style: solid;  
+  z-index: 9999;  
+  left: 50%;  
+  //padding:10px;  
+  position: absolute;  
+  width: 400px;  
+  margin-left: -250px;  
+  top:80px;  
+  }  
+  </style>
+
+
+   <apex:variable var="rowNum" value="{!0}"  />
+  <apex:pageBlock id="d" title="Session Students Edit">
+      <apex:variable var="rowNum" value="{!0}"/>
+   <apex:pageBlocksection title="Students Information" collapsible="false"/>
+    <apex:pageBlockTable value="{!Stdlist}" var="std">
+    <!--<apex:column headerValue="No."  style="width:20px;">
+        <apex:outputText value="{0,number, ###}" style="text-align:center;">   
+            <apex:param value="{!rowNum+1}" />   
+        </apex:outputText>
+     </apex:column>  --> 
+    
+    <apex:column headervalue="Training Session">
+     <apex:outputfield value="{!std.Training_Session__c}"/>
+    </apex:column>
+  
+    <apex:column headervalue="Contact">
+     <apex:inputField value="{!std.Contact__c}" style="width:100px"  required="false"/>
+    </apex:column>
+
+    <apex:column headervalue="Course Fees">
+     <apex:inputField value="{!std.Course_Fees__c}" style="width:75px" required="false"/>
+    </apex:column>
+     
+    <apex:column headerValue="Action">
+     <apex:commandlink value="Add Row" action="{!Addrow}" rerender="d"/>&nbsp;
+      <apex:commandlink value="Delete Row" action="{!delrow}" rerender="d"><!--rendered="{!rowNum>0}"--->
+      <apex:param value="{!rownum}" name="index" />
+     </apex:commandlink>
+     <!--<apex:variable var="rowNum" value="{!rowNum+1}"/>-->
+    </apex:column>
+  
+ </apex:pageBlockTable>
+</apex:pageBlock>
+
+<apex:pageBlock id="MGSection">
+ <apex:variable var="rowNum" value="{!0}"/>
+   <apex:pageBlocksection title="Mother Groups Information" collapsible="false">
+    <apex:pageBlockTable value="{!mglist}" var="mg">
+     <apex:column headervalue="Mother Group">
+     <apex:inputField value="{!mg.Mother_Group__c}">
+      <!--<apex:actionSupport event="onchange" reRender="mgcdetails" action="{!GetContacts}"/>-->
+     </apex:inputfield>
+    </apex:column>
+    <apex:column headerValue="Action">
+      <apex:commandlink value="Get Contacts" action="{!getmothercontacts}" rerender="popup"/>&nbsp;
+      <apex:commandlink value="Add Row" action="{!AddGrouprow}" reRender="MGSection"/>&nbsp;
+      <apex:commandlink value="Delete Row" action="{!DeleteGroupRow}" reRender="MGSection" rendered="{!rowNum>0}">
+       <apex:param value="{!rownum}" name="index"/>
+     </apex:commandlink>
+     <apex:variable var="rowNum" value="{!rowNum+1}"/>
+    </apex:column>
+  </apex:pageBlockTable>
+ </apex:pageBlocksection>
+</apex:pageblock> 
+
+ <apex:outputpanel id="popup">
+  <apex:outputpanel rendered="{!displaypopup}" styleclass="custompopup">
+  <apex:pageBlock >
+  <apex:pageBlocksection title="Mother Group Contacts Edit" collapsible="false">
+   <apex:pageBlockTable value="{!MotherGroupSessionList}" var="std" id="mgcdetails" >
+     <apex:column headervalue="Mother Group Contacts">
+       <apex:outputField value="{!std.Contact__c}" style="width:100px" />
+     </apex:column>
+      <apex:column headervalue="Course Fees">
+       <apex:inputtext value="{!std.Course_Fees__c}" style="width:100px" />
+     </apex:column>
+    </apex:pageBlockTable>
+  </apex:pageblocksection>
+   <center><apex:commandbutton value="Save" action="{!savepopup}" rerender="MGSection,popup"/> 
+           <apex:commandbutton value="Cancel" action="{!Cancelpopup}" rerender="popup"/> 
+   </center>
+   </apex:pageBlock>
+   </apex:outputpanel>
+ </apex:outputpanel> 
+ <center><apex:commandButton value="Save" action="{!save}"/></center>
+  </apex:form>
+</apex:page>

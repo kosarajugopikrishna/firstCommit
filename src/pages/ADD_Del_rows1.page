@@ -1,0 +1,36 @@
+<apex:page Controller="contactadddelrows"  sidebar="false" showHeader="true">
+<apex:form >
+
+  <apex:variable var="rowNum" value="{!0}"  />
+              <apex:pageblock id="table">
+              <apex:variable var="rowNum" value="{!0}"  />
+        <apex:pageBlockSection title="Price D"></apex:pageBlockSection>     
+        <apex:pageBlockTable value="{!items}" var="a" columns="4">
+       
+        <apex:column headerValue="No." style="width:20px; text-align:center;">
+           <apex:outputText value="{0,number, ###}" style="text-align:center;">  
+              <apex:param value="{!rowNum+1}" />&nbsp;&nbsp;&nbsp;&nbsp; 
+           </apex:outputText>
+        </apex:column>
+        <apex:column headerValue="Name">
+                    <apex:inputField value="{!a.lastname}" required="false"/>
+                </apex:column>
+                <apex:column headerValue="Phone">
+                    <apex:inputField value="{!a.phone}" required="false"/>
+                </apex:column>              
+                <apex:column headerValue="Action" >
+                        
+                        <apex:commandLink value="Add Items" action="{!AddItems}" rerender="table,error" immediate="true"/>
+                        |<apex:commandLink value="Delete Item" action="{!RemoveItems}" reRender="table" rendered="{!rowNum>0}">
+                            <apex:param value="{!rowNum}" name="index" />
+                            
+                        </apex:commandLink>
+                        <apex:variable var="rowNum" value="{!rowNum+1}"/>
+                </apex:column>
+          </apex:pageBlockTable>         
+              
+                       
+
+       </apex:pageBlock>
+   </apex:form>
+ </apex:page>

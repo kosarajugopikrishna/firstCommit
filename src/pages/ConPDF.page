@@ -1,0 +1,73 @@
+<apex:page showheader="false" docType="html-5.0"  applyBodyTag="false" applyHtmlTag="false" standardController="Quote__c" extensions="forquotepdf">
+<head>
+     <style>
+            @page {
+                   margin-top: 3.0cm;
+                   margin-left: 0cm;
+                   margin-right: 0cm;
+                   padding-bottom:20px;
+                   
+            @top-center{
+                 background-image: url('{!$Resource.continuant_header}');
+                  width:100%;
+                 }
+            @bottom-right{
+                  content: "Page " counter(page) " of " counter(pages);
+                  padding-bottom:20px;
+                  padding-right:30px;
+                 }
+              
+            @page:first{ 
+                @top-center{content: normal}
+                @bottom-right {content: normal}
+                }
+             }  
+             /*@page{
+          @bottom-right{
+                  content: "Page " counter(page) " of " counter(pages);
+                  padding-bottom:20px;
+                  padding-right:30px;
+              }   
+            }*/
+          
+          .Page1Table
+          {
+            width:98%;
+            margin-right:1%;
+            margin-left:1%;
+            }
+          .LocationTable
+          {
+            width:90%;
+            margin-left:5%;
+            margin-right:5%;
+            margin-top:2%;
+            border:1px solid black;
+            }
+          .tablestyle
+           {
+            border:1px solid black;
+            }   
+            .Agreement{
+              border: 1px solid;
+              padding-left:10px;
+              }     
+             .wrap td div {
+              width: 150px;
+              word-wrap: break-word;
+              border: 1px solid red;
+                } 
+             
+    </style>
+  </head>
+  
+  
+   <apex:include pageName="Continuant_QuotePDF"/>
+   <apex:outputtext >{!brochure}</apex:outputtext>
+   <div style="height:500px;width:90%;margin-left:5%;margin-right:5%;font-size:10px;page-break-after:always;">
+       <apex:outputPanel rendered="{!remoteitem}">
+       <apex:outputtext value="{!TTC}" escape="false">
+       </apex:outputtext>
+       </apex:outputPanel>
+  </div>
+</apex:page>

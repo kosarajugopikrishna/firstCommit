@@ -1,0 +1,22 @@
+<apex:page controller="actionStatusImage" tabStyle="Account">
+    <apex:form id="formId">
+    <apex:pageBlock id="pgBlckId" title="New Account">
+         
+        <apex:pageBlockButtons location="top" >
+            <apex:commandButton action="{!save}" value="Save" reRender="pgBlckId" status="actStatusId"/>
+            <apex:actionStatus id="actStatusId" >
+                <apex:facet name="start">
+                  <img src="/img/loading.gif" />                    
+                </apex:facet>
+            </apex:actionStatus>
+        </apex:pageBlockButtons>
+         
+        <apex:pageBlockSection id="pgBlckSecId" title="Account Information" collapsible="false">
+            <apex:inputField value="{!Contact.name}"/>
+            <apex:inputField value="{!Contact.Phone}"/>
+           
+           
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

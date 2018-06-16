@@ -1,0 +1,14 @@
+<apex:page controller="myactionsupport" wizard="true">
+  <apex:form >
+  <apex:pageblock id="d" >
+  <apex:pageBlockSection >
+   <apex:inputField value="{!account.name}" required="false">
+   <apex:actionSupport action="{!mouseout}" event="onmouseout" reRender="d" status="st"/>
+   <!--<apex:actionStatus id="st" startText="loading..." />-->
+   </apex:inputfield>
+   <apex:inputField value="{!account.phone}" rendered="{!phone}"/>
+   
+   </apex:pageBlockSection>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

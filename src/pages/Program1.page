@@ -1,0 +1,18 @@
+<apex:page standardController="Account" sidebar="false" showheader="false">
+<apex:sectionheader title="New Account"/>
+<apex:form >
+<apex:pageblock mode="edit">
+<apex:pageBlockSection title="Information">
+    <apex:inputfield value="{!Account.Name}"/>
+     <apex:inputfield value="{!Account.Phone}" required="false"/>
+        <apex:inputfield value="{!Account.Parentid}"/>
+           <apex:inputfield value="{!Account.Fax}"/>   
+</apex:pageBlockSection>
+<center><apex:pageBlockButtons location="bottom" >
+<apex:commandbutton value="save" action="{!save}"/>
+<apex:commandButton value="save & new"/ >
+<apex:commandButton value="cancel" action="{!cancel}"/ >
+</apex:pageBlockButtons></center>
+</apex:pageblock>
+</apex:form>
+</apex:page>

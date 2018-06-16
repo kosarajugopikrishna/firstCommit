@@ -1,0 +1,17 @@
+<apex:page standardController="Account" extensions="Mycontroller1"   recordSetVar="accs">
+ <apex:form >
+  <apex:pageBlock >
+   <apex:pageblocksection >
+    <apex:pageblocktable value="{!accs}" var="acc">
+   <apex:column value="{!acc.name}"/>
+   <apex:column headervalue="Mybox">
+   <apex:inputCheckbox value="{!acc.Mybox__c}"/>
+   </apex:column>
+   
+   
+    </apex:pageblocktable>
+    <apex:outputtext value="Selected Values:"></apex:outputtext>
+    </apex:pageblocksection>
+   </apex:pageBlock>
+    </apex:form>
+    </apex:page>

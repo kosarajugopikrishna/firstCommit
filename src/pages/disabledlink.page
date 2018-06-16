@@ -1,0 +1,16 @@
+<apex:page controller="disabledlink" wizard="true" >
+<apex:form >
+Profile Name is: {!$Profile.Name}  
+<apex:pageBlock id="r">
+<apex:pageBlockSection >
+<apex:inputField value="{!acc.name}"/>
+<apex:inputField value="{!acc.phone}"/>
+</apex:pageBlockSection>
+<apex:pageBlockButtons location="bottom">
+<apex:commandButton reRender="r" value="Button"  >
+</apex:commandButton>
+<apex:commandLink value="Link" action="{!disabled}"  rendered="{!isdisabled}" /><br/>
+</apex:pageBlockButtons>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

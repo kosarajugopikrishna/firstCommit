@@ -1,0 +1,53 @@
+<apex:page controller="popup10" >
+<style type="text/css">
+
+.popup  
+  {  
+  background-color: skyBlue;  
+  border-width: 2px;  
+  border-style: solid;  
+  z-index: 9999;  
+  left: 50%;  
+  padding:10px;  
+  position: absolute;  
+  width: 400px;  
+  margin-left: -250px;  
+  top:80px;  
+  }  
+</style>
+
+ <apex:form id="oppopup" >
+  <apex:pageBlock >
+   <apex:pageBlockTable value="{!details}" var="ac">
+  
+    <apex:column value="{!ac.name}">
+   
+     
+     </apex:column>
+      
+    <apex:column value="{!ac.phone}"/>
+    <apex:column value="{!ac.Email__c}"/>
+    <apex:column headervalue="Details">
+    <apex:commandlink value="Edit" action="{!edit}" reRender="oppopup">
+    <apex:param name="id" value="{!ac.id}" assignTo="{!aid}"/>
+    </apex:commandlink>
+   </apex:column>-->
+     
+  </apex:pageBlockTable>
+  </apex:pageBlock>
+  
+          <apex:outputPanel id="oppopup">
+             <apex:outputPanel styleClass="popup" rendered="{!displaypopup}" >
+                <apex:outputLabel value="Name:"/>
+                 <apex:inputField value="{!acct[0].name}"/><br/>
+                
+                 <apex:outputLabel value="Phone: " />
+                 <apex:inputField value="{!acct[0].phone}"/><br/>
+                 <apex:outputLabel value="Email: " />
+                 <apex:inputField value="{!acct[0].email__c}"/><br/>
+                 <center><apex:commandButton value="Cancel" action="{!cancel}"  reRender="oppopup" />
+                         <apex:commandButton value="Save" action="{!save}" reRender="oppopup"       /></center>
+             </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

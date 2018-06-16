@@ -1,0 +1,22 @@
+<apex:page controller="Practicepicklist" >
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection columns="1" title="RelatedAccountandContacts" ></apex:pageBlockSection>
+<apex:panelGrid >
+<apex:outputlabel >SelectAccount:&nbsp;&nbsp;&nbsp;&nbsp;
+<apex:selectList value="{!accountfields}" size="1">
+<apex:selectOptions value="{!options}" />
+<apex:actionSupport event="onchange" action="{!data}" reRender="r"/>
+</apex:selectList>
+</apex:outputlabel><br/>
+<apex:pageBlockSection >
+<apex:outputlabel >DisplayContacts:&nbsp;&nbsp;&nbsp;&nbsp;
+<apex:selectList id="r"  >
+<apex:selectOptions value="{!coptions}" rendered="{!flag}" />
+</apex:selectList>
+</apex:outputlabel>
+</apex:pageBlockSection>
+</apex:panelGrid>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

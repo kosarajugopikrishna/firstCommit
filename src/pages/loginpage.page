@@ -1,0 +1,7 @@
+<apex:page >
+<apex:form >
+<center>User:<apex:inputtext /><br>
+Password:<apex:inputsecret /></br>
+<apex:commandbutton value="save"/></center>
+</apex:form>
+</apex:page>

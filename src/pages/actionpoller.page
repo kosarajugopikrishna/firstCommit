@@ -1,0 +1,8 @@
+<apex:page controller="actionpoller" >
+  <apex:form >
+   <apex:pageblock id="g">
+    <apex:actionPoller action="{!action}" reRender="g" interval="5"/>
+      {!seconds } hi good morning!
+       </apex:pageblock>
+        </apex:form>
+</apex:page>

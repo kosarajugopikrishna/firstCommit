@@ -1,0 +1,16 @@
+<apex:page controller="checkbox" tabStyle="Account">
+<apex:form >
+  <apex:selectCheckboxes value="{!countries}">
+    <apex:selectoption itemlabel="Canada" itemvalue="1"/>
+      <apex:selectoption itemlabel="Australia" itemvalue="2"/>
+          <apex:selectoption itemlabel="US" itemvalue="3"/>
+               <apex:selectoption itemlabel="India" itemvalue="4"/>
+  </apex:selectCheckboxes> 
+
+        <apex:commandbutton value="Test" action="{!Test}"/>
+  <apex:outputPanel >
+  <P>u r selected countries</P>
+  <apex:dataList value="{!countries}" var="c">{!c}</apex:dataList>
+  </apex:outputPanel>
+</apex:form>
+</apex:page>

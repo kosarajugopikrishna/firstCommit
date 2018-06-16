@@ -1,0 +1,43 @@
+<apex:page controller="javascriptcontroller">
+<script type="text/javascript">
+
+ function jsfunction(){
+ var accnameJS = document.getElementById('accountsearch').value;
+ Visualforce.remoting.Manager.invokeAction(
+
+ '{!$RemoteAction.javascriptcontroller.getaccount}',accnameJS,
+  function(result,event)
+  {
+   if(event.status)
+    {
+     document.getElementById("{!$Component.pb.pbs.accnames}").innerHTML=result.Name;
+      document.getElementById("{!$Component.pb.pbs.accId}").innerHTML=result.Id;
+       document.getElementById("{!$Component.pb.pbs.accphone}").innerHTML=result.Phone;
+        document.getElementById("{!$Component.pb.pbs.acccheckbox}").innerHTML=result.spider__Mybox__c;
+    }
+    if(accnameJS != document.getElementById("{!$Component.pb.pbs.accnames}").innerHTML && document.getElementById('accountsearch').value !='')
+    {
+     alert('Account name is not in this org');
+     }
+     if(accnameJS =='')
+     {
+      alert('Name should be mandatory');
+      }
+  },
+   {escape:true}
+    );
+  }
+</script>
+
+Account Name: <input id="accountsearch" type="text"/>
+<Button onclick="jsfunction();">Get Account</button>
+<apex:pageBlock id="pb">
+<apex:pageBlockSection id="pbs" columns="3">
+<apex:outputText id="accId"/>
+<apex:outputText id="accnames"/>
+<apex:outputText id="accphone"/>
+<!--<apex:selectCheckboxes id="acccheckbox"/>-->
+</apex:pageBlockSection>
+</apex:pageBlock>
+
+</apex:page>

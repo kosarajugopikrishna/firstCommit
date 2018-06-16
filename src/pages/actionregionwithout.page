@@ -1,0 +1,25 @@
+<apex:page controller="actionregioncontroller">
+  <apex:form >
+   <apex:pageblock id="d" mode="edit">
+    <apex:pageblocksection title="Account Section" >
+    
+     <apex:inputField value="{!account.name}">
+     <!--<apex:actionsupport action="{!onsave}" reRender="d" event="onchange"  />-->
+     </apex:inputfield>
+     <apex:inputField value="{!account.phone}">
+     <!--<apex:actionsupport action="{!onsave}" reRender="d" event="onchange"  />-->
+     </apex:inputfield>
+     <center><apex:commandButton action="{!onsave}" Value="save" rerender="d">
+   
+    </apex:commandbutton>
+    </center> 
+    </apex:pageblocksection>
+    <apex:pageblockSection title="Contact Section" >
+    Contact Name:<apex:outputtext value="{!Contactname}"/>
+    Contact Phone:<apex:outputtext value="{!contactphone}"/>
+    
+    
+    </apex:pageblockSection>
+   </apex:pageblock>  
+  </apex:form>
+  </apex:page>

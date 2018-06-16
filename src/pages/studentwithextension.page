@@ -1,0 +1,15 @@
+<apex:page standardcontroller="Student__c" extensions="gopi">
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection >
+  
+  <apex:inputField value="{!Student__c.First_Name__c}"/>
+  <br/>
+  <apex:inputField value="{!Student__c.Last_Name__c}"/>
+  <apex:inputField value="{!Student__c.Name__c}"/>
+  <apex:commandButton value="save" action="{!save}"/>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+  </apex:form>
+</apex:page>

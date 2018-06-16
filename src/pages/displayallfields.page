@@ -1,0 +1,7 @@
+<apex:page showHeader="false" Controller="FieldsClass">
+        <apex:DataTable value="{!data}" var="d">
+             <apex:column headerValue="Field Name">
+                 {!d}
+             </apex:column>          
+         </apex:DataTable>
+</apex:page>

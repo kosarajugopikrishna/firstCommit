@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Contact" >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page: overridecontact
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

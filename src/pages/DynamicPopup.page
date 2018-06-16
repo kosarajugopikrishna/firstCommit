@@ -1,0 +1,50 @@
+<apex:page standardcontroller="Training_Course__c" extensions="dynamiclookup" sidebar="false" showHeader="false">
+ <apex:form >
+ 
+  <script type="text/javascript">
+
+  var popUpWin;
+       var popUpLookUp;
+       function popupwindow(title, w, h) { 
+       var CID='{!courseId}'; 
+       var url = '/apex/PopUp_forCustomLookup?id='+CID;
+       var left = (screen.width/2)-(w/2);  
+       var top = (screen.height/2)-(h/2);  
+       popUpWin = window.open(url, 'title', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);  
+       popUpWin.focus();
+       return false; 
+ }  
+ var thisWin=null;
+ function closePopup(courseName,thisWin)
+{
+if(courseName!=null && courseName != "" && courseName !=undefined)
+document.getElementsByClassName('coursename')[0].value=courseName;
+console.log(courseName);
+if (null!=popUpWin)
+{
+ popUpWin.close();
+} 
+}
+function refreshpopup(){
+    SaveandRefresh();
+    window.top.close();
+    
+} 
+ </script> 
+ 
+ 
+
+ <apex:pageBlock >
+   <apex:pageBlockSection title="Pre-Requisites Information" collapsible="false">
+    <apex:outputPanel >
+      <apex:outputtext value="Pre-Requisite Courses:"/>&nbsp; 
+       <apex:inputtext value="{!tcourse}" id="course" styleclass="coursename" style="height:30px"/>
+       <apex:image value="/s.gif" StyleClass="lookupIcon" style="cursor:pointer;" onclick="popupwindow('User', 600, 500)" />
+    </apex:outputPanel>  
+   </apex:pageBlockSection>
+ <center>
+ <apex:actionFunction name="SaveandRefresh" action="{!save}" onComplete="alert('After apex method') ;"/>
+ <apex:commandButton value="Save" oncomplete="refreshpopup()"/></center>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

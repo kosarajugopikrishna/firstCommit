@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Abort_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Abort Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer no show</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cancelled by customer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Appointment missed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Jobs</relationshipLabel>
+        <relationshipName>Jobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Actual_End__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Actual End</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Start__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Actual Start</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Address of the job</description>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Schedule__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>If enabled in your Skedulo configuration, this will trigger Skedulo to auto-allocate and schedule this job to an appropriate timeslot and resource automatically.</inlineHelpText>
+        <label>Auto Schedule</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Can_Be_Declined__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Whether resources assigned to the job can choose to decline the job.</description>
+        <externalId>false</externalId>
+        <label>Can Be Declined</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Completion_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Completion Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>the contact attached to this job - subject to change</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Jobs</relationshipLabel>
+        <relationshipName>Jobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Job_No__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Customer Job No.</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dispatch_At_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>If specified, this job will be automatically be dispatched within 5 minutes of the time specified. If set to a value in the past, will dispatch immediately.</inlineHelpText>
+        <label>Dispatch At Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Duration__c</fullName>
+        <deprecated>false</deprecated>
+        <description>duration (in minutes) of the job</description>
+        <externalId>false</externalId>
+        <label>Duration</label>
+        <precision>6</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_End__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated End</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Start__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Start</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Finish__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Finish</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Follow_up_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Follow up Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Ready</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Needs more time</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GeoLocation__c</fullName>
+        <deprecated>false</deprecated>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>GeoLocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Job_Allocation_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>a count of the joballocations associated</description>
+        <externalId>false</externalId>
+        <label>Job Allocation Count</label>
+        <summaryFilterItems>
+            <field>Job_Allocation__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Empty, Deleted, Declined</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Job_Allocation__c.Job__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Job_Allocation_Time_Source__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Job Allocation Time Source</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Job_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Internal Skedulo use only. Do not modify the default Picklist values.</description>
+        <externalId>false</externalId>
+        <label>Job Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Queued</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Pending Allocation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pending Dispatch</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dispatched</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ready</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>En Route</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Site</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <referenceTo>Location__c</referenceTo>
+        <relationshipLabel>Jobs</relationshipLabel>
+        <relationshipName>Jobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Locked</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notes_Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Notes and Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NotifyPeriod__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of hours before the job starts, when a notification will be sent to allocated resources.</description>
+        <externalId>false</externalId>
+        <label>Notify Period</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notify_By__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The datetime a notification should be sent to allocated resources.</description>
+        <externalId>false</externalId>
+        <formula>Start__c - (NotifyPeriod__c / 24.0)</formula>
+        <label>Notify By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Parent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Parent</label>
+        <referenceTo>Job__c</referenceTo>
+        <relationshipLabel>Follow-ups</relationshipLabel>
+        <relationshipName>Followups</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recurring_Schedule__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Schedule</label>
+        <referenceTo>Recurring_Schedule__c</referenceTo>
+        <relationshipLabel>Jobs</relationshipLabel>
+        <relationshipName>Jobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <referenceTo>Region__c</referenceTo>
+        <relationshipLabel>Jobs</relationshipLabel>
+        <relationshipName>Jobs</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Hours_Worked__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Roll up of all the hours work on a job by all resources</description>
+        <externalId>false</externalId>
+        <label>Resource Hours Worked</label>
+        <summarizedField>Job_Allocation__c.Hours__c</summarizedField>
+        <summaryForeignKey>Job_Allocation__c.Job__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Requirement_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Resource Requirement Count</label>
+        <summaryForeignKey>Resource_Requirement__c.Job__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Start__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Start</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Timezone__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Region__r.Timezone__c</formula>
+        <label>Timezone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Installation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Upgrade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Break Fix</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Maintenance</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Urgency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Urgency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Normal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Urgent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Critical</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Job</label>
+    <nameField>
+        <displayFormat>JOB-{0000}</displayFormat>
+        <label>Job Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Jobs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Resource__c</fullName>
+        <label>Resource</label>
+    </sharingReasons>
+    <validationRules>
+        <fullName>DurationMustBeGreaterThanZero</fullName>
+        <active>true</active>
+        <errorConditionFormula>Duration__c  &lt; 1</errorConditionFormula>
+        <errorDisplayField>Duration__c</errorDisplayField>
+        <errorMessage>A job&apos;s duration must be greater than 0 minutes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DurationMustMatchStartToFinish</fullName>
+        <active>true</active>
+        <description>Check to see that the duration is the amount of minutes between start and finish. Also enforces that start and finish are to the minute by virtue of the ROUND function</description>
+        <errorConditionFormula>AND(
+  NOT ISNULL(Finish__c), NOT ISNULL(Start__c), Duration__c &lt;&gt; ROUND(((Finish__c - Start__c) * 1440),0)  )</errorConditionFormula>
+        <errorMessage>If Start and End are both set, then Duration must match</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DurationNoGreaterThan24Hrs</fullName>
+        <active>true</active>
+        <description>A job&apos;s duration can not be longer than 24 hrs</description>
+        <errorConditionFormula>false</errorConditionFormula>
+        <errorMessage>Duration cannot exceed 24 hours</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>FinishMustProvidedIfStartProvided</fullName>
+        <active>true</active>
+        <description>Either both Start and End are set, or both are blank.</description>
+        <errorConditionFormula>AND (
+  NOT ISNULL( Start__c ),ISNULL( Finish__c )
+)</errorConditionFormula>
+        <errorMessage>Both Start and Finish date must be provided or they both must be blank</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NoRRWithQuantityPresent</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Resource_Requirement_Count__c  &gt; 0 , NOT( ISNULL( Quantity__c ) ) )</errorConditionFormula>
+        <errorDisplayField>Quantity__c</errorDisplayField>
+        <errorMessage>Job quantity must be null to have resource requirement</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>StartEndDateCheck</fullName>
+        <active>true</active>
+        <errorConditionFormula>Start__c &gt; Finish__c</errorConditionFormula>
+        <errorDisplayField>Start__c</errorDisplayField>
+        <errorMessage>Start Date cannot be after the End Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>StartMustProvidedIfFinishProvided</fullName>
+        <active>true</active>
+        <description>Either both Start and End are set, or both are blank.</description>
+        <errorConditionFormula>AND (
+  ISNULL( Start__c ),NOT ISNULL( Finish__c )
+
+)</errorConditionFormula>
+        <errorMessage>Both Start and Finish date must be provided or they both must be blank</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ValidateJobStatus</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( ISPICKVAL( Job_Status__c , &apos;Queued&apos;) || ISPICKVAL( Job_Status__c , &apos;Pending Allocation&apos;) || ISPICKVAL( Job_Status__c , &apos;Pending Dispatch&apos;) || ISPICKVAL( Job_Status__c , &apos;Dispatched&apos;) || ISPICKVAL( Job_Status__c , &apos;Ready&apos;) || ISPICKVAL( Job_Status__c , &apos;En Route&apos;) || ISPICKVAL( Job_Status__c , &apos;On Site&apos;) || ISPICKVAL( Job_Status__c , &apos;In Progress&apos;) || ISPICKVAL( Job_Status__c , &apos;Complete&apos;) || ISPICKVAL( Job_Status__c , &apos;Cancelled&apos;) )</errorConditionFormula>
+        <errorDisplayField>Job_Status__c</errorDisplayField>
+        <errorMessage>Invalid Job Status value</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>notify_period_must_be_24_hours_or_more</fullName>
+        <active>true</active>
+        <description>Must be greater than 24 hours</description>
+        <errorConditionFormula>NotifyPeriod__c &lt; 1</errorConditionFormula>
+        <errorDisplayField>NotifyPeriod__c</errorDisplayField>
+        <errorMessage>Notify Period must be 24 hours or more</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>notify_period_requires_start_date_time</fullName>
+        <active>false</active>
+        <description>when user enters NotifyPeriod, they must also enter Start</description>
+        <errorConditionFormula>ISBLANK(Start__c)  &amp;&amp;  (ISBLANK( NotifyPeriod__c )  &lt;&gt; true)</errorConditionFormula>
+        <errorDisplayField>Start__c</errorDisplayField>
+        <errorMessage>Notify Period requires a valid Start</errorMessage>
+    </validationRules>
+</CustomObject>

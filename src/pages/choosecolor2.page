@@ -1,0 +1,14 @@
+<apex:page controller="choosecolor2">
+<apex:form id="p" >
+<apex:selectlist value="{!s}" size="1"  >
+<apex:selectoption itemvalue="0" itemlabel="None"/>
+<apex:selectoption itemvalue="1" itemlabel="Hyd"/>
+<apex:selectoption itemvalue="2" itemlabel="Delhi"/>
+<apex:actionsupport event="onchange" rerender="p"/>
+</apex:selectlist>
+
+<apex:outputText >
+{!s}
+</apex:outputText>
+</apex:form>
+</apex:page>

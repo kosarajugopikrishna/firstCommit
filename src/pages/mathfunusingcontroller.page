@@ -1,0 +1,34 @@
+<apex:page controller="Mathfunction">
+   <apex:form >
+   
+    <apex:pageblock title="MathFunction" mode="edit" >
+      <apex:pageblocksection >
+        <apex:outputLabel >Value1:
+        </apex:outputLabel>
+         <apex:inputtext value="{!v1}" />  
+          <apex:outputLabel >Value2:
+            </apex:outputLabel> 
+             <apex:inputtext value="{!v2}" /> 
+           </apex:pageblocksection>
+           <apex:pageblocksection title="Aggregate Functions" >
+            <apex:selectRadio layout="pagedirection" value="{!opt}" >
+                <apex:selectOption itemValue="Sum" itemlabel="Sum"/>
+                 <apex:selectOption itemValue="Sub" itemlabel="Sub"/>
+                  <apex:selectOption itemValue="Multiply" itemlabel="Multiply"/>
+                   <apex:selectOption itemValue="Divide" itemlabel="Divide"/>
+               
+            </apex:selectRadio>
+            </apex:pageblocksection>
+            <apex:pageblocksection title="Result Section" id="c" >
+              <apex:outputLabel >Result:
+                 </apex:outputLabel>
+                    <apex:inputtext value="{!r}"/> 
+                    <center>
+                    <apex:commandButton value="Find" action="{!find}" reRender="c" status="s"/>
+                    <apex:actionstatus starttext="finding" id="s"/> </center>
+                    </apex:pageblocksection>
+             </apex:pageblock>
+               </apex:form>
+       
+  
+</apex:page>

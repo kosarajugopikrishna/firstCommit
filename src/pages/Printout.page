@@ -1,0 +1,19 @@
+<apex:page standardController="Account" >
+    <script>      
+        window.onload = function() { 
+            window.print();
+        }
+    </script>
+   
+    
+    <apex:pageBlock >
+     <apex:pageBlockSection >
+     
+     
+     hi
+     
+     </apex:pageBlockSection>
+    
+    
+    </apex:pageBlock>
+</apex:page>

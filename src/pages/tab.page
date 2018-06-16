@@ -1,0 +1,8 @@
+<apex:page standardcontroller="Account">
+<apex:form id="g" >
+<apex:tabPanel switchtype="client" >
+<apex:tab label="one" reRender="g">gopi</apex:tab>
+<apeX:tab label="Two" reRender="g">krishna</apex:tab>
+</apex:tabPanel>
+  </apex:form>
+</apex:page>

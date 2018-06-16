@@ -1,0 +1,7 @@
+<apex:page controller="DownloadPDF" sidebar="false"  showHeader="false"><!--contentType="application/pdf" docType="html-5.0"--->
+
+    <script>
+        window.location.href = "data:application/pdf;base64,{!str}";
+    </script>
+ <apex:image url="{!myimageurl}" width="256" height="256"/>
+</apex:page>

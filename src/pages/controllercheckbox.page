@@ -1,0 +1,23 @@
+<apex:page controller="StateCheckbox5">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+Andhra Pradesh<apex:inputCheckbox value="{!c1}">
+<apex:actionsupport event="onchange" rerender="a"/>
+</apex:inputcheckbox>
+Rayalseema<apex:inputCheckbox value="{!c2}">
+<apex:actionsupport event="onchange" rerender="a"/>
+</apex:inputcheckbox>
+Telangana<apex:inputCheckbox value="{!c3}">
+<apex:actionsupport event="onchange" rerender="a"/>
+</apex:inputcheckbox>
+<apex:outputLabel value="Cities">
+<apex:selectList value="{!city}" id="a">
+<apex:selectoptions value="{!cities}"/>
+
+</apex:selectList>
+</apex:outputLabel>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

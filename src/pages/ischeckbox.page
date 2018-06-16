@@ -1,0 +1,27 @@
+<apex:page standardcontroller="opportunity" recordSetVar="opps" >
+  <apex:form >
+  <apex:messages />
+    <apex:pagemessage severity="fatal" summary="Save Successful"></apex:pagemessage>
+   <apex:pageblock id="c" mode="inlineedit">
+    <apex:pageBlockButtons location="Top" >
+     <apex:commandButton value="Save" action="{!save}" reRender="c"/>
+      
+    </apex:pageBlockButtons>
+    <apex:pageblocktable value="{!opps}" var="op">
+     <apex:column value="{!op.name}"/>
+    
+     <!--<apex:column headerValue="Name" >
+     <apex:inputText value="{!op.name}" required="false"/>
+     </apex:column>-->
+     <apex:column headerValue="Private">
+     <apex:inputCheckbox value="{!op.isprivate}" />
+     </apex:column>
+     
+     <!--<apex:column value="{!op.isprivate}" />--->
+     
+    </apex:pageblocktable>
+    </apex:pageblock>
+    </apex:form>
+    
+     
+</apex:page>

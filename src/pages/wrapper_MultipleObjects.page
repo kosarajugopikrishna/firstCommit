@@ -1,0 +1,15 @@
+<apex:page controller="wrapper" >
+<apex:form >
+ <apex:commandButton value="Add" action="{!addfields}"/>
+ 
+   <apex:repeat value="{!listfields}" var="lf" >
+       <apex:inputField value="{!lf.acc.name}"/>
+       <apex:inputField value="{!lf.acc.phone}"/>
+       <apex:inputField value="{!lf.con.lastname}"/>
+       <apex:inputField value="{!lf.con.phone}"/>
+    
+   </apex:repeat>
+  
+  
+</apex:form>
+</apex:page>

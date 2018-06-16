@@ -1,0 +1,91 @@
+<apex:page standardController="Training_Session__c" docType="html-5.0" extensions="Custom_LookupPageCls" id="pageId">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/JavaScript" />
+
+  <style>    
+
+     select{
+        margin-right:10px !important;
+        color:#000;
+     }
+   
+    #pageId:mainFormId:pgBId:j_id44:j_id45_top
+    {
+    white-space:nowrap;
+    width:200px;
+    }
+    #pageId:mainFormId:pgBId:j_id44:j_id45_top
+    {
+    width:170px;
+    padding-left:60px;
+    }
+    
+    </style>    
+    <apex:form id="mainFormId">        
+        <apex:sectionHeader subtitle="Project Team Allocation" title="New"/>        
+        <apex:pageMessages id="msgId"/>
+        
+                
+        <apex:pageBlock id="pgBId" >
+            <apex:pageblockbuttons >
+                  <apex:commandbutton action="{!save}" value="Save"/>
+                  <apex:commandbutton action="{!cancel}" value="Cancel"/>
+            </apex:pageblockbuttons>
+           
+                  <label valign="middle" style="font-weight:bold;color:#4a4a56;font-size:91%;padding-left:86px;">Allocated Members</label>
+                  <apex:inputTextArea id="phoneNumberFieldId"  rows="5" cols="116"  style="margin-left:13px;"/>
+                  <apex:inputHidden id="phoneNameFieldId" />
+                  <a href="#" id="acc3_lkwgt" onclick="openLookupPopup();" tabindex="2" title="Parent Account Lookup (New Window)" style="text-decoration: none;">
+                          <img src="/s.gif" alt="Parent Account Lookup (New Window)" class="lookupIcon" onblur="this.className = 'lookupIcon';" onfocus="this.className = 'lookupIconOn';" onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" title="Parent Account Lookup (New Window)"/>
+                  </a>
+                  <span class="helpButton" id="Phone.Search-_help">
+                          <label for="phoneNumberFieldId"></label>
+                          <img src="/s.gif" alt="" class="helpOrb" title=""/>
+                          <script type="text/javascript">sfdcPage.setHelp('Phone.Search', '<table><tr><td><center></center></td></tr><tr><td>Click to open multiple user selection</td></tr></table>');</script>
+                  </span>                                
+            <!--</apex:actionRegion><br/><br/>-->
+           
+       </apex:pageBlock>   
+       
+       
+      
+    </apex:form>    
+    <script> 
+    
+    var $ = jQuery.noConflict();
+     $(document).ready(function(){
+      $("#toggleId").click(function(){
+        $("#detailTblId").toggle();
+        if($("#detailTblId").css('display')=='none'){
+            $('#linkTextId').html('Click here to show the Contact information in the Tabular form.');
+        }else{
+            $('#linkTextId').html('Click here to Hide.');
+        }
+      });                                           
+    }); 
+    var newWin=null;
+    function openLookupPopup(){ 
+      <!-- var objectName = $('select[id$=selectedObjectId]').val();-->
+      var objectName = 'User';
+       <!--var fieldName = $('select[id$=selectfield]').val();-->
+       var fieldName = 'Name';
+       try{            
+               var url="/apex/wordpage?oN="+objectName+"&fN="+fieldName+"&core.apexpages.devmode.url=1";
+               newWin=window.open(url, 'Popup','height=400,width=650,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+               if (window.focus){
+                    newWin.focus();
+               }
+            }
+        }catch(e){
+                alert('Server Error: '+e);
+        }                   
+        return false;
+    }                  
+    function closeLookupPopup(){
+       if (null!=newWin)
+       {
+          newWin.close();
+       }  
+    }
+   
+    </script> 
+    </apex:page>

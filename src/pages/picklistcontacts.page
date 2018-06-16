@@ -1,0 +1,17 @@
+<apex:page controller="picklist1cls">
+    <apex:form >
+        <!--<apex:ActionFunction name="call" action="{!getData}"/>
+        <apex:selectlist value="{!selectedAcc}" size="1" onchange="call()">
+            <apex:selectOptions value="{!items}"/>
+        </apex:selectlist>-->
+        
+        <apex:selectlist value="{!selectedAcc}" size="1">
+            <apex:selectOptions value="{!items}"/>
+            <apex:actionSupport event="onchange" action="{!getData}" rerender="clist"/>
+        </apex:selectlist>
+        
+        <apex:selectlist size="1" id="clist">
+            <apex:selectOptions value="{!conitems}"/>
+        </apex:selectlist>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page standardController="Account" extensions="AccExtensionOne,AccExtensionTwo">
+<apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection >
+  <apex:inputField value="{!Account.Name}"/>
+  </apex:pageBlockSection>
+  <apex:commandButton value="Save" action="{!sum}"/>
+  
+  </apex:pageBlock>
+</apex:form>
+
+</apex:page>

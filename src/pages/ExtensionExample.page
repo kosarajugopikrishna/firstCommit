@@ -1,0 +1,21 @@
+<apex:page standardController="Account" extensions="getvalues">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockTable value="{!Accs}" var="acc">
+<apex:column value="{!acc.name}"/>
+<apex:column >
+<apex:commandButton value="Details" action="{!'/'+acc.id}"/>
+</apex:column>
+
+</apex:pageBlockTable>
+
+
+
+
+</apex:pageBlock>
+</apex:form>
+
+
+
+
+</apex:page>

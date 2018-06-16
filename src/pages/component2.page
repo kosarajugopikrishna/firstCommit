@@ -1,0 +1,12 @@
+<apex:page tabStyle="Account" >
+<apex:form >
+  <apex:pageBlock >
+   <apex:pageBlockSection >
+    <c:Component2 textvalue1="Gopi" textvalue2="123" textvalue3="abc@gmail.com" textcolor="red" />
+    
+ </apex:pageBlockSection>
+  
+  
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

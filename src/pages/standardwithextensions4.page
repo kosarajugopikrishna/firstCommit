@@ -1,0 +1,8 @@
+<apex:page standardController="Contact" extensions="ContactExtension4">
+
+    <apex:form >
+        <apex:inputField value="{!contact.Email}" />
+        <apex:inputField value="{!contact.MobilePhone}" />
+        <apex:commandButton action="{!save}" value="Save" />
+    </apex:form>
+</apex:page>

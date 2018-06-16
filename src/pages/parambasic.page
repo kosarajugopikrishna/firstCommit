@@ -1,0 +1,8 @@
+<apex:page Controller="Acco">
+<apex:form >
+<apex:commandlink value="edit" action="{!edit}">
+<apex:param name="gopi" value="krishna" assignTo="{!gopi2}" />
+</apex:commandlink>
+
+</apex:form>  
+</apex:page>

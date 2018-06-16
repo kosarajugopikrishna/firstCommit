@@ -1,0 +1,13 @@
+<apex:page >
+ <apex:form >
+  <script type="text/javascript"> 
+  function turnRed(id) { 
+  alert("hi"); 
+  var myPara = document.getElementById(id); 
+  alert(myPara); 
+  myPara.style.color = "green"; 
+  } 
+  </script> 
+  <apex:commandLink action="{!gogoogle}" target="_blank" value="Go Google" id="check" style="color:red" onclick="turnRed('{!$Component.check}')"/>
+  </apex:form>
+  </apex:page>

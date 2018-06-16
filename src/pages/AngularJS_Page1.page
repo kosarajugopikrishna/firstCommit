@@ -1,0 +1,24 @@
+<apex:page docType="html-5.0" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="true" cache="false">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"/>
+<body ng-app="myApp" >
+    <div ng-controller="myController" ng-init="city.code='ON'">
+       <select ng-model= "code" ng-options="city.code as city.description for city in cities"/><br/>
+       <span ng-bind="code" />
+    </div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller('myController', ['$scope', function ($scope) {
+     $scope.cities=[
+             { code: 'ON', description: 'Ontario' },
+             { code: 'QC', description: 'Quebec' },
+             { code: 'NS', description: 'Nova Scotia' },
+             { code: 'NB', description: 'New Brunswick' },
+             { code: 'MB', description: 'Manitoba' },
+             { code: 'BC', description: 'British Columbia' },
+             { code: 'PE', description: 'Prince Edward Island' },
+             { code: 'SK', description: 'Saskatchewan' } 
+   ];
+    }]);
+</script>
+</body>
+</apex:page>

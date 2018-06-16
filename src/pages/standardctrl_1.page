@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="standardctrl_1" sidebar="false">
+  <apex:form >
+   <apex:pageBlock mode="edit" id="d">
+   <!--<apex:pageBlockTable var="acc" value="{!accounts}">-->
+     <apex:pageBlockSection title="Account" >
+     <apex:inputField value="{!account.name}" required="false">
+     <apex:actionSupport action="{!mouseout}" event="onmouseout" reRender="d"/>
+     </apex:inputfield>
+     <apex:inputField value="{!account.phone}" rendered="{!phone}"/>
+     </apex:pageblocksection>
+   <!-- </apex:pageBlockTable>-->
+   </apex:pageBlock>
+  </apex:form>
+</apex:page>

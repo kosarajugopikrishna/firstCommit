@@ -1,0 +1,6 @@
+<apex:page controller="Brochure_Doc">
+  <apex:form >
+   <apex:outputText value="{!Logo}" escape="false" />
+
+  </apex:form>
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page standardcontroller="attachment" doctype="html-5.0">  
+      
+    <a href="/servlet/servlet.FileDownload?file={!attachment.id}" download="{!attachment.name}">{!attachment.name}</a>  
+      
+    <!--<apex:outputLink value="/servlet/servlet.fileDownload?file={!attachment.id}">{!attachment.name}  
+      
+        </apex:outputLink>-->(this will simply open the file)  
+      
+     </apex:page>

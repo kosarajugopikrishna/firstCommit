@@ -1,0 +1,97 @@
+<apex:page standardController="Training_Session__c" extensions="SamplePageCls" sidebar="false" >
+    
+    <apex:form >
+    
+ <style type="text/css">
+      .custompopup  
+  {  
+  //border-style: solid;  
+  z-index: 9999;  
+  left: 50%;  
+  //padding:10px;  
+  position: absolute;  
+  width: 400px;  
+  margin-left: -250px;  
+  top:80px;  
+  }  
+ </style>
+    
+    
+    
+    
+    
+      <!---------------Students Info Section------------------->
+        <apex:pageBlock id="pageBlk" title="Session Students Edit" >
+          <apex:variable var="rowNum" value="{!0}"/>
+          <apex:pageBlocksection title="Students Information" collapsible="false"/> 
+          <apex:pageblockTable value="{!acclist}" var="std">
+              <!--<apex:column value="{!rowNum}" headerValue="Row Number"/>-->
+                
+                <apex:column headervalue="Training Session">
+                    <apex:outputfield value="{!std.Training_Session__c}"/>
+                </apex:column>
+                <apex:column headervalue="Contact">
+                    <apex:inputField value="{!std.Contact__c}" style="width:100px"  required="false"/>
+                </apex:column>
+                <apex:column headervalue="Course Fees">
+                    <apex:inputField value="{!std.Course_Fees__c}" style="width:75px" required="false"/>
+                </apex:column>
+                <apex:column headerValue="Action">
+                   <apex:commandlink value="Add Row" action="{!AddNewRow}" rerender="pageBlk"/>&nbsp;&nbsp;
+                   <apex:commandlink value="Delete Row" action="{!DelNewRow}" rerender="pageBlk" rendered="{!rowNum>0}">
+                       <apex:param value="{!rowNum}" name="index" assignTo="{!rowAssign}"/>
+                   </apex:commandlink>
+                   <apex:variable var="rowNum" value="{!rowNum+1}"/>
+                </apex:column>
+       </apex:pageblocktable>
+     </apex:pageBlock>
+      
+      <!-------------------Mother Group Info Section---------------------> 
+  <apex:pageBlock id="MGSection">
+     <apex:variable var="MotherRowNo" value="{!0}"/>
+   <apex:pageBlocksection title="Mother Groups Information" collapsible="false">
+    <apex:pageBlockTable value="{!mglist}" var="mg">
+     <apex:column headervalue="Mother Group">
+       <apex:inputField value="{!mg.Mother_Group__c}"/>
+     </apex:column>
+     
+    <apex:column headerValue="Action">
+      <apex:commandlink value="Get Contacts" action="{!getmothercontacts}" rerender="popup"/>&nbsp;&nbsp;
+      <apex:commandlink value="Add Row" action="{!AddGrouprow}" reRender="MGSection"/>&nbsp;&nbsp;
+      <apex:commandlink value="Delete Row" action="{!DeletegroupRow}" reRender="MGSection" rendered="{!MotherRowNo>0}">
+       <apex:param value="{!MotherRowNo}" name="MGindex" assignTo="{!motherRowAssign}" />
+      </apex:commandlink>
+      <apex:variable var="MotherRowNo" value="{!MotherRowNo+1}"/>
+     </apex:column>
+    </apex:pageBlockTable>
+  </apex:pageBlocksection>
+ </apex:pageblock>  
+       
+     
+      <!---------------------POPUP Section------------------------->
+      
+  
+  <apex:outputpanel rendered="{!displaypopup}" styleclass="custompopup" id="popup">
+  <apex:pageBlock >
+  <apex:pageBlocksection title="Mother Group Contacts Edit" collapsible="false">
+   <apex:pageBlockTable value="{!MotherGroupContactsList}" var="std" id="mgcdetails" >
+     <apex:column headervalue="Mother Group Contacts">
+       <apex:outputField value="{!std.Contact__c}" style="width:100px" />
+     </apex:column>
+      <apex:column headervalue="Course Fees">
+       <apex:inputtext value="{!std.Course_Fees__c}" style="width:100px" />
+     </apex:column>
+    </apex:pageBlockTable>
+  </apex:pageblocksection>
+   <center><apex:commandbutton value="Save" action="{!savepopup}" rerender="MGSection,popup"/> 
+           <apex:commandbutton value="Cancel" action="{!Cancelpopup}" rerender="popup"/> 
+   </center>
+   </apex:pageBlock>
+   </apex:outputpanel>
+  
+     
+   
+   <center><apex:commandButton value="Save" action="{!save}"/></center>  
+ </apex:form>
+    
+</apex:page>

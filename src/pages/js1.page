@@ -1,0 +1,23 @@
+<apex:page Controller="changecolorusingjs" id="pgAccount">
+  <script>
+    function showName()
+    {
+        var x;
+        var x = document.getElementById("pgAccount:frm:pbAccount:out:ifName").value;
+                document.getElementById("pgAccount:frm:pbAccount:ou").innerHTML= x;
+                document.getElementById("pgAccount:frm:pbAccount:ou").style.color = "blue";
+     }    
+    </script>
+
+ <apex:form id="frm" >
+  <apex:pageBlock id="pbAccount">
+  <apex:pageBlockSection id="out" >
+    <apex:inputField value="{!acc.name}" required="false" id="ifName"/>
+    <apex:inputField value="{!acc.phone}" id="ifPhone"/>
+    <apex:commandButton value="click" action="{!click}" onclick="showName();return true;"  reRender="ou"/>
+  </apex:pageBlockSection>
+  <apex:outputPanel id="ou">
+  </apex:outputPanel>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page controller="choosecolor1">
+<apex:form id="c">
+Select:<apex:selectList value="{!s}" size="1">
+  <apex:selectOption itemValue="Red" itemLabel="Red"/>
+  <apex:selectOption itemValue="White" itemLabel="White"/>
+  <apex:selectOption itemValue="Blue" itemLabel="Blue"/>
+  <apex:actionsupport event="onchange" rerender="c"/>
+</apex:selectList> 
+<br><apex:outputtext >
+{!s}
+</apex:outputtext></br>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<apex:page controller="customcontrol">
+<apex:form >
+   First:   <apex:inputtext id="inpEmployeeName" value="{!EmployeeName}"/><br/>
+   Middle:  <apex:inputtext id="inpEmployeeName2" value="{!EmployeeName2}"/><br/>
+   Last:    <apex:inputtext id="inpEmployeeName3" value="{!EmployeeName3}"/><br/>
+   <apex:CommandButton value="Next" action="{!next}" id="cmdNext" >     
+   </apex:commandButton>
+  <apex:outputLink value="/apex/page4">click<apex:param name="EN" value="{!EmployeeName}"/></apex:outputLink>
+</apex:form>
+</apex:page>

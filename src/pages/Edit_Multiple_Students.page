@@ -1,0 +1,25 @@
+<apex:page controller="EditBulkNoofstudents" sidebar="false"  tabStyle="Session_Student__c">
+<apex:form >
+ <apex:pageMessages />
+  <apex:pageBlock title="Session Students Edit" id="d">
+   <apex:pageBlocksection title="Information" collapsible="false" />
+        <apex:pageblockTable value="{!Stdlist}" var="std">
+           
+            <apex:column headervalue="Contact">
+             <apex:outputfield value="{!std.Contact__c}"/>
+            </apex:column>
+            <apex:column headervalue="Status">
+             <apex:inputField value="{!std.Status__c}" rendered="{!if(std.Status__c='Open',true,false)}">
+             <!-- <apex:actionSupport event="onmouseout" reRender="d" action="{!GetContacts}"/>-->
+             </apex:inputfield>
+             <apex:outputField value="{!std.Status__c}" rendered="{!if(std.Status__c='Discontinued' || std.Status__c='Completed' || std.Status__c='Unregistered',true,false)}"/>
+            </apex:column>
+            <apex:column headervalue="Reason">
+             <apex:inputField value="{!std.Reason__c}"/>
+            </apex:column>
+        </apex:pageblockTable>
+       <center><apex:commandButton value="Save" action="{!save}"/>
+       <apex:commandButton value="Cancel" action="{!Cancel}"/></center>
+  </apex:pageblock>
+ </apex:form>
+</apex:page>

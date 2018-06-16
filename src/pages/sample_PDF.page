@@ -1,0 +1,22 @@
+<apex:page Controller="BrochureImages"
+            showHeader="false" sidebar="false">
+ <apex:form >
+    <!--<apex:stylesheet value="{!URLFOR($Resource[selectedTheme], 'styles/styles.css')}"/>-->
+      <div> 
+        <apex:image value="{!URLFOR($Resource[Brochure])}" width="100%"/>
+      </div>
+    <apex:pageBlock id="ThemePreview" >
+      <apex:pageBlockSection >
+        <apex:outputLabel value="Select Theme: " for="themesList"/>
+        <apex:selectList id="themesList" size="1" value="{!Brochure}">
+        <apex:actionSupport event="onchange" rerender="ThemePreview"/>
+        <apex:selectOptions value="{!themeOptions}"/>
+        </apex:selectList>
+      </apex:pageBlockSection>
+    </apex:pageblock>
+             <div style="position: relative; left: 0px; top: 0px;">
+          <img src="{!$Resource.Continuant_Header}" style="position: relative; top: 0px; left: 0px;"/>
+          <img src="{!URLFOR($Resource.Brochure, 'Brochure/Page3.tif')}" style="position: absolute; top: 0px; left: 0px;" width="100%"/>
+        </div>
+ </apex:form>
+</apex:page>

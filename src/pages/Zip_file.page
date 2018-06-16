@@ -1,0 +1,80 @@
+<apex:page standardController="Invoice__c">
+
+    <apex:includeScript value="/soap/ajax/25.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/25.0/apex.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.Jquery)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.JSzipfile)}"/>
+   
+ <script type="text/javascript">
+ 
+
+    
+     sforce.connection.sessionId = "{!$Api.Session_ID}";
+   //Download all Attachments from sobject id
+     
+        function downloadFromObjectId( btn ){
+            jQuery(btn).attr('disabled', true);
+            try{
+              
+               var rId="select id from spider__Invoice__c";
+               alert('query '+rId);
+               var records = sforce.connection.query(rId); 
+               alert('am an alert here >>>>>>>>>>>>> '+records);
+               var rec = ""; 
+               var i; //Loop through the records Id
+               var recs = records.getArray('records');
+               alert(recs);
+               for (i = 0; i < recs.length; i++) 
+               {   
+                     if(i==recs.length-1)
+                    rec += recs[i].Id;
+                  else
+                    rec += recs[i].Id + ",";
+
+               }   
+               
+                alert(rec);
+                //var rId = 'a039000000G4LwD' //Change it to Account Id  
+              
+              var response = sforce.apex.execute("spider.Zipclass_WS","getAttachmentByParentId",{sfdcId:rec});
+              
+              var respObj = JSON.parse(response);
+              
+              if( respObj['status'] != '200' ) {//
+                alert( respObj ['error'] );
+               return;
+              }
+              var fileData = respObj['data'];
+              downloadZip( fileData );
+            } catch (e) {
+              alert(e);
+            }
+            jQuery(btn).attr('disabled', false);
+        }
+        //Zip files and download
+        function downloadZip( fileData ) {
+            var fileName = 'Attachments.zip';   //Temp file name for downloading
+            var zip = new JSZip();
+            for( var k in fileData ) {
+                zip.file(fileData[k]['Name'], fileData[k]['Body'].toString(),{base64: true});
+            }
+            content = zip.generate();
+            response = sforce.apex.execute("spider.Zipclass_WS","saveToDocument",{zipFileData:content, fileName:fileName});
+            respObj = JSON.parse( response  );
+            if( respObj['status'] != '200' ) {
+                alert( respObj ['error'] );
+                return;
+            }
+            var docId = respObj['data'];
+            location.href = '/servlet/servlet.FileDownload?file=' + docId;
+        }
+        
+    </script>
+    <apex:form >
+    
+        <apex:pageblock title="Attachments Download as a Zipfile" >
+             <input type="button" onclick="downloadFromObjectId(this);" value="Download"/>
+        </apex:pageblock>
+       
+    </apex:form>
+</apex:page>

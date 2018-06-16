@@ -1,0 +1,16 @@
+<apex:page standardController="Account" extensions="acc,Acc1" >
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection >
+  <apex:inputField value="{!account.name}"/>
+  <apex:inputField value="{!account.Phone}"/>
+  <apex:inputField value="{!account.Email__c}"/>
+ 
+  <apex:commandButton value="Save" action="{!save}"/>
+  <apex:commandLink value="Link" rendered="{$user.lastname=='admin'}"  />
+ 
+  </apex:pageBlockSection>
+  
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>
