@@ -1,0 +1,14 @@
+<apex:page Controller="selectlistex" >
+  <apex:form >
+   <apex:selectList size="1" value="{!acc}"  >
+   <apex:selectOptions value="{!names}"/>
+   <apex:actionSupport event="onchange" action="{!con}" reRender="d"/>
+    </apex:selectList>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:outputPanel id="d">
+    <apex:selectList >
+    <apex:selectOptions value="{!cons}">
+    </apex:selectOptions>
+    </apex:selectList>
+    </apex:outputpanel>
+  </apex:form>
+</apex:page>

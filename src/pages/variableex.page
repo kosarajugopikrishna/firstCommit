@@ -1,0 +1,22 @@
+<apex:page standardController="Account" recordSetVar="accs">  
+  <apex:variable value="{!1}" var="index">
+  <apex:pageblock >       
+   <apex:pageblocktable value="{!accs}" var="item">   
+       
+    <apex:column >      
+     <apex:outputlabel value="{!index}"/>            
+    </apex:column> 
+     
+    <apex:column > 
+     
+     <apex:variable value="{!index+1}" var="index"/>   
+     
+     <apex:outputlabel value="{!item.Name}">  
+    
+     </apex:outputlabel> 
+     
+    </apex:column>  
+     </apex:pageblocktable> 
+     </apex:pageblock>       
+ </apex:variable>
+ </apex:page>

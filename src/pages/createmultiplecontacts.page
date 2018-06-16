@@ -1,0 +1,46 @@
+<apex:page controller="Multicontact1" tabStyle="Contact" sidebar="false"  >
+    
+   <!--<style>
+.myBlock {
+    position: absolute;
+    border: 3px solid #6FEC79;
+    background-color: #FFF;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 999;
+    margin: -102px 19px 0 0;
+}
+</style>-->
+ <apex:form >
+ 
+<apex:pageMessages />
+  <apex:pageBlock id="d">
+   <apex:pageBlockTable value="{!conlist}" var="con" >
+    <!--<apex:column headervalue="Student Name">
+     <apex:inputField value="{!con.lastname}" required="false"/>
+     </apex:column>
+     <apex:outputPanel layout="block" styleClass="myBlock">
+       <apex:outputText value="This is my text!" />
+    </apex:outputPanel>-->
+   <apex:column headervalue="Training Session">
+     <apex:outputfield value="{!con.accountid}">
+       <!--<apex:actionSupport event="onchange" action="{!fetchcoursefees}"/>-->
+     </apex:outputField>
+    </apex:column>
+   <apex:column headervalue="Contact">
+    <apex:inputField value="{!con.accountid}" style="width:100px" required="false"/>
+    </apex:column>
+    <apex:column headervalue="Course Fee">
+     <apex:inputField value="{!con.Number__c}"/>
+    </apex:column>
+   
+  </apex:pageBlockTable>
+  
+
+  </apex:pageBlock>
+   <apex:commandButton value="AddRow" action="{!addrow}" immediate="true" reRender="d"/>|
+  <apex:commandButton value="AddRows" action="{!addrows}" immediate="true" reRender="d"/>|
+  <apex:commandButton value="Save" action="{!save}"/>
+  </apex:form>
+</apex:page>

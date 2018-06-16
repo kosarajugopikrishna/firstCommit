@@ -1,0 +1,57 @@
+<apex:page standardController="Training_Session__c" extensions="Accountpdf" showHeader="false" sidebar="false" 
+                                    contentType="application/msword#CourseCompletionCertificate.docx" cache="true"><!--contentType="application/msword#CourseCompletionCertificate.doc"-->
+<div style="border:1px solid black">
+<apex:form >
+<div>
+<apex:image value="{!$Resource.NANDRI}" width="98%" style="padding-top:10px"/>
+</div>
+<center> 
+<div style="font-size:30px;padding-top:30px;">
+<apex:outputlabel >
+CERTIFICATE OF COMPLETION
+</apex:outputlabel><br/><br/><br/>
+</div>
+<div style="font-size:20px;font-weight:bold">
+<apex:outputlabel >
+          THIS AWARD CERTIFIES THAT 
+</apex:outputlabel><br/><br/>
+</div>
+<div style="font-size:30px;text-decoration: underline;">
+<apex:outputlabel >
+         {!studentnames}
+</apex:outputlabel><br/><br/><br/>
+</div>
+<div style="font-size:20px;font-weight:bold">
+<apex:outputlabel >
+          HAS SUCCESSFULLY COMPLETED THE COURSE ON
+</apex:outputlabel><br/><br/>           
+</div>
+<div style="font-size:30px;text-decoration:underline;">
+<apex:outputlabel >
+          {!Training_Session__c.Training_Course__r.name}
+</apex:outputlabel><br/><br/>
+</div>   
+ <div style="font-size:20px;">
+FROM&nbsp;<apex:outputtext value="{0,date,MM'/'dd'/'yyyy}">
+<apex:param value="{!Training_Session__c.From_Date__c}"/>
+</apex:outputtext>&nbsp;
+TO&nbsp;<apex:outputtext value="{0,date,MM'/'dd'/'yyyy}">
+<apex:param value="{!Training_Session__c.To_Date__c}"/>
+</apex:outputtext>
+</div> 
+</center><br/><br/><br/>
+
+<div style="text-align:right;font-size:20px;padding-top:50px;padding-right:20px;">
+<apex:outputtext >
+  SIGNATURE      
+</apex:outputtext><br/><br/> 
+</div>
+<div style="text-align:right;font-size:20px;text-decoration:underline;padding-right:20px;">
+<apex:outputlabel >
+  DIRECTOR-NANDRI     
+</apex:outputlabel><br/>
+</div>
+
+</apex:form>
+</div>
+</apex:page>

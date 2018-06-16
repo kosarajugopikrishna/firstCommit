@@ -1,0 +1,15 @@
+<apex:page controller="loginpage">
+<apex:form >
+<apex:pageblock title="Login Page">
+
+<apex:pageBlockSection >
+<apex:inputtext value="{!Username}" label="Username:"/><br/>
+<apex:inputsecret value="{!Password}" label="Password:"/>
+</apex:pageBlockSection>
+<center>
+<apex:commandButton value="Save" action="{!save}"/>&nbsp;&nbsp;&nbsp;
+<apex:commandButton value="Cancel" action="{!cancel}"/>&nbsp;&nbsp;&nbsp;
+<apex:commandButton value="Register" action="{!Register}"/></center>
+</apex:pageblock>
+</apex:form>
+</apex:page>

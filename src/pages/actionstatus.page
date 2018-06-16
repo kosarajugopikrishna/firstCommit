@@ -1,0 +1,12 @@
+<apex:page >
+<apex:form >
+    <apex:pageBlock id="c">
+        <apex:pageBlockSection >
+        <apex:commandButton value="Status" status="st" reRender="c"/>           
+        </apex:pageBlockSection>
+        <apex:actionStatus id="st" startText="loading......."/>
+    </apex:pageBlock>
+        
+</apex:form>
+
+</apex:page>

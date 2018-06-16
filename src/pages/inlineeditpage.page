@@ -1,0 +1,18 @@
+<apex:page standardcontroller="Account">
+<apex:form >
+<apex:pageBlock mode="edit" >
+<apex:pageBlockSection title="Controlling Section" >
+<apex:inputField value="{!account.Controlling__c}"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Dependent Section" >
+<apex:outputfield value="{!account.Dependent__c}" label="Dependent:">
+
+<apex:actionSupport event="onchange"/>
+</apex:outputfield>
+</apex:pageBlockSection>
+<apex:commandButton value="Refresh Picklists"/>
+   
+</apex:pageBlock>
+
+</apex:form>
+</apex:page>

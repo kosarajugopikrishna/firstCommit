@@ -1,0 +1,37 @@
+<apex:page standardController="Account" recordSetVar="accs" extensions="relatedlist">
+ <apex:form >
+ 
+   <apex:sectionHeader title="AccountList" subtitle="Records"/>
+   <apex:insert name="bo"/>
+   <apex:pageBlock >
+   <apex:pageBlockTable value="{!accs}" var="a" id="thePageblockTable">
+     <apex:column value="{!a.Name}"/>
+     <apex:column value="{!a.Phone}"/>
+     <apex:column value="{!a.Email__c}"/>
+   </apex:pageBlockTable>
+   <center><apex:commandLink value="First" action="{!first}" reRender="thePageblockTable"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Next" action="{!next}" reRender="thePageblockTable"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Previous" action="{!previous}" reRender="thePageblockTable"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Last" action="{!last}" reRender="thePageblockTable"/>
+   </center></apex:pageBlock>
+   </apex:form>
+ <apex:form >
+ 
+ 
+ <apex:sectionheader title="ContactList"/>
+  <center><apex:commandLink value="First" action="{!first}" reRender="thePageblockTable"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Next" action="{!next}" reRender="thePageblockTable"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Previous" action="{!previous}" reRender="thePageblockTable"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:commandLink value="Last" action="{!last}" reRender="thePageblockTable"/>
+   </center>
+   
+    </apex:form>  
+   <apex:pageBlock >
+       <apex:pageBlockTable value="{!cons}" var="c">
+     <apex:column value="{!c.lastname}"/>
+      <apex:column value="{!c.accountid}"/>
+     <apex:relatedList list="Contacts"/>
+  </apex:pageBlockTable>
+   </apex:pageBlock>
+
+</apex:page>

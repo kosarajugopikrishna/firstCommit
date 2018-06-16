@@ -1,0 +1,22 @@
+<apex:page standardController="Account" recordSetVar="accs">
+  <apex:form >
+   <Apex:pageBlock >
+    <apex:pageblockTable value="{!accs}" var="ac">
+     <apex:column value="{!ac.name}"/>
+     </apex:pageblockTable>
+   <apex:commandButton value="save" action="{!save}"/>
+   <!--<apex:commandButton value="DELETE" action="{!doDelete}" rendered="{!$ObjectType.account.deletable}"/>-->
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>
+
+<!--<apex:page standardController="Lead">
+<apex:form >
+<apex:pageBlock rendered="{!$ObjectType.Lead.accessible}">
+<p>This text will display if you can see the Lead object.</p>
+</apex:pageBlock>
+<apex:pageBlock rendered="NOT({!$ObjectType.Lead.accessible})">
+<p>Sorry, but you cannot see the data because you do not have access to the Lead object.</p>
+</apex:pageBlock>
+</apex:form>
+</apex:page>-->

@@ -1,0 +1,14 @@
+<apex:page standardController="account" extensions="kosaraju">
+  <apex:form >
+   <apex:pageblock >
+    <apex:pageBlockSection >
+     <apex:inputfield value="{!account.name}" required="false"/>
+      <apex:commandButton value="click" action="{!click}" reRender="d">
+      <!--<apex:actionSupport event="onclick" rendered="{!account.name!=null}"/>-->
+    
+       </apex:commandbutton>
+     <apex:outputlabel id="d"><b>Result:&nbsp;{!ds} </b></apex:outputlabel><!--<apex:outputLabel value="{!ds}" id="d"/>-->
+    </apex:pageBlockSection>
+   </apex:pageblock>
+   </apex:form>
+</apex:page>

@@ -1,0 +1,8 @@
+<apex:page standardController="Account" extensions="mySecondController">
+<apex:form >
+<apex:page >
+ <apex:commandButton value="save" action="{!save}"/>
+
+ </apex:page>
+  </apex:form>
+</apex:page>

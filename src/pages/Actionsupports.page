@@ -1,0 +1,14 @@
+<apex:page controller="actionregion2" wizard="true"> 
+ <apex:form >
+ <apex:pageBlock id="p">
+  <apex:pageblocksection >
+   
+   <apex:inputfield value="{!acc.name}" required="false">
+   <apex:actionSupport event="onmouseout" action="{!show}" reRender="p"/>
+   </apex:inputfield>
+   <apex:inputField value="{!acc.phone}" rendered="{!showphone}"/>
+   <!--<apex:inputField value="{!acc.Email__c}"/>-->
+        </apex:pageblocksection>
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,22 @@
+<apex:page standardcontroller="Account" recordSetVar="accs">
+ <apex:pageBlock >
+  <apex:pageBlockSection >
+   <apex:pageBlockTable value="{!accs}" var="acc">
+      <apex:column headerValue="Account Name" value="{!acc.name}"/>
+      <apex:column headerValue="Account Phone" value="{!acc.phone}"/>
+   
+   
+   
+   
+   
+   </apex:pageBlockTable>
+  
+  
+  
+  
+  </apex:pageBlockSection>
+ 
+ 
+ </apex:pageBlock>
+  
+</apex:page>

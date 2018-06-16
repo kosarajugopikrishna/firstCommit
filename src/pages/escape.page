@@ -1,0 +1,17 @@
+<apex:page controller="Sample">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >Enter Text:</apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem ><apex:inputText value="{!str}"/></apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Show"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:outputLabel escape="true" value="Escape true : {!str}"/><br/>
+            <apex:outputLabel escape="false" value="Escape false : {!str}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

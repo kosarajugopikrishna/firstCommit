@@ -1,0 +1,29 @@
+<apex:page controller="customsearchcls">
+
+<apex:form id="g">
+
+    <apex:pageblock >
+    
+        <apex:outputLabel >Account Search</apex:outputLabel>
+     
+        <apex:inputText value="{!str}"/>
+        
+        <apex:pageMessages />
+        
+        <apex:commandButton value="search" action="{!search}" rerender="g"/>
+        
+    </apex:pageblock>
+    
+    <apex:pageblock >
+        <apex:pageblocksection >
+        <apex:pageblocktable value="{!acclist}" var="a">
+        <apex:column value="{!a.name}"/>
+        </apex:pageblocktable>
+
+        </apex:pageblocksection>
+        
+            </apex:pageblock>
+
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,24 @@
+<apex:page controller="Bulkstudents">
+<apex:form >
+  <apex:pageblock >
+        <apex:pageblockTable value="{!conlist}" var="c">
+            <!--<apex:column headervalue="Name">
+             <apex:inputField value="{!c.lastname}"/>
+            </apex:column>-->
+            <apex:column headervalue="Contact">
+             <apex:outputfield value="{!c.accountId}"/>
+            </apex:column>
+            <apex:column headervalue="Course Fee">
+             <apex:inputField value="{!c.Number__c}"/>
+            </apex:column>
+            <apex:column headervalue="Status">
+             <apex:inputField value="{!c.Status__c}"/>
+            </apex:column>
+            
+      </apex:pageblockTable>
+       <center><apex:commandButton value="Save" action="{!save}"/>
+       <apex:commandButton value="Cancel" action="{!Cancel}"/></center>
+    </apex:pageblock>
+  
+  </apex:form>  
+</apex:page>

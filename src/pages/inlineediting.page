@@ -1,0 +1,6 @@
+<apex:page standardController="Contact">
+<apex:form >
+<apex:detail subject="{!contact.id}" inlineEdit="false" showchatter="false"/>
+</apex:form>
+  
+</apex:page>

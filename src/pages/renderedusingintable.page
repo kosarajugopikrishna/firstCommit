@@ -1,0 +1,12 @@
+<apex:page standardController="Opportunity" recordSetVar="opps">
+<apex:pageBlock >
+    <apex:pageBlockTable value="{!opps}" var="o">
+        <apex:column headervalue="Name" value="{!o.Name}" />
+        <apex:column headervalue="Probability" value="{!o.Probability}" />
+        <apex:column headerValue="Amount or Stage">
+            <apex:outputField value="{!o.StageName}" rendered="{!AND(o.Probability !=100)}" />
+            <apex:outputField value="{!o.Amount}" rendered="{!o.Probability = 100}" />
+        </apex:column>
+    </apex:pageBlockTable>
+</apex:pageBlock>
+</apex:page>

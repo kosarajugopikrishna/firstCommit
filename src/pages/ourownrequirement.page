@@ -1,0 +1,28 @@
+<apex:page controller="getfieldvalue">
+ <apex:form id="page">
+  <apex:pageBlock mode="edit" > 
+   <apex:pageBlockTable value="{!accounts}" var="acc" >
+    <apex:column headerValue="S.no">
+    
+     <apex:actionSupport event="onclick" action="{!sup}" reRender="page">
+      <apex:inputCheckbox value="{!check}">
+     </apex:inputcheckbox>
+     </apex:actionsupport>
+      
+     
+    
+    </apex:column>
+    <apex:column headerValue="Name" value="{!acc.name}"/>   
+    <apex:column headerValue="Phone" value="{!acc.Phone}"/>   
+    <apex:column headerValue="Email" value="{!acc.Email__c}"/>   
+   </apex:pageBlockTable>
+   <apex:pageblockSection title="Display Phone">
+   <b>Phone No:</b><apex:inputtext value="{!disp}"/>
+   </apex:pageblockSection>
+  
+   
+   
+  
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

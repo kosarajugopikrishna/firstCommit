@@ -1,0 +1,31 @@
+<apex:page sidebar="false" standardController="Account" recordSetVar="records">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+              <apex:pageBlockTable value="{!records}" var="r">
+                  <apex:column headerValue="Name">
+                  
+                    <apex:actionsupport event="ondblclick" rerender="out" >
+                      {!r.Name}
+                      <apex:param name="rId" value="{!r.Id}"/>
+                    </apex:actionsupport>
+                    
+                  </apex:column>
+                  
+                  <apex:column headerValue="phone">
+                     
+                      {!r.phone}
+                        
+                  </apex:column>
+                  
+          </apex:pageBlockTable>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+     
+     
+              <apex:outputpanel id="out">
+                  <apex:detail subject="{!$CurrentPage.parameters.rId}" relatedList="false"/>
+              </apex:outputpanel> 
+         
+  </apex:form>
+</apex:page>

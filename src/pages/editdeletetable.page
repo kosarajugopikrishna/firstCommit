@@ -1,0 +1,24 @@
+<apex:page controller="editcon" tabStyle="Account">  
+ <apex:form >  
+ <apex:sectionHeader title="edit/delete"/>  
+ <apex:pageBlock >  
+ <apex:pageBlockTable value="{!stun}" var="stu">  
+ <apex:column >  
+ <!--<apex:param name="sid" value="{!stu.id}"/> -->
+ </apex:column>  
+ <apex:column value="{!stu.name}"/>  
+ <apex:column value="{!stu.phone}"/> 
+ <apex:column value="{!stu.billingcity}"/> 
+ <apex:column headerValue="Action">  
+ <apex:commandLink value="EDIT" action="{!edit}">  
+ <apex:param name="cid" value="{!stu.id}" assignTo="{!ecid}"/>  
+ </apex:commandLink>  
+ &nbsp;&nbsp;&nbsp;&nbsp;  
+ <apex:commandLink value="DELETE" action="{!deletecon}">  
+ <apex:param name="cid" value="{!stu.id}" assignTo="{!dcid}"/>  
+ </apex:commandLink>  
+ </apex:column>  
+ </apex:pageBlockTable>  
+ </apex:pageBlock>  
+ </apex:form>   
+ </apex:page>

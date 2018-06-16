@@ -1,0 +1,17 @@
+<apex:page controller="CreditCard" >
+
+<apex:form >
+
+<b>Credit Card:</b>&nbsp;
+<apex:pagemessages />
+  <apex:inputtext value="{!name}" style="width:40px">
+  <apex:actionsupport event="onmousehover" action="{!no}"/>
+  </apex:inputtext>-
+  
+  <apex:inputtext value="{!name1}" style="width:40px"/>-
+  <apex:inputtext value="{!name2}" style="width:40px"/>-
+  <apex:inputtext value="{!name3}" style="width:40px"/>
+
+</apex:form>
+  
+</apex:page>

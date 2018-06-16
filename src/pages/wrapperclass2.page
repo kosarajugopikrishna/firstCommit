@@ -1,0 +1,25 @@
+<apex:page controller="wrappercontroller2">
+<apex:form >
+    <apex:pageBlock id="c"  >
+    <apex:pageblockButtons >
+               <apex:commandButton value="show selected" status="i" action="{!show}" reRender="c"/>      
+        </apex:pageblockButtons>
+        <span><b>All Accounts</b></span>
+        <span style="padding-left:550px;"><b>Selected Accounts</b></span>
+        <apex:pageblocksection columns="2">
+        <apex:pageblocktable value="{!lstwrap}" var="Ewrap">
+        <apex:column headerValue="selected">
+        
+        <apex:inputcheckbox value="{!Ewrap.check}"/>
+        </apex:column>
+        <apex:column value="{!Ewrap.acc.name}"/>
+        <apex:column value="{!Ewrap.acc.phone}"/>
+        </apex:pageblocktable>
+        <apex:pageblocktable value="{!selected}" var="s">
+    <apex:column value="{!s.name}"/>
+    </apex:pageblocktable>
+        </apex:pageblocksection>
+    </apex:pageBlock>
+  
+</apex:form>
+</apex:page>

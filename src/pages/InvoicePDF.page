@@ -1,0 +1,233 @@
+<apex:page showHeader="false" >
+  <apex:form >  <!--style="font-family: Myriad Pro, Lucida Grande, calibri, sans-serif;"---><!--style="font-family:Arial Unicode MS;"--->
+  
+<head>
+ 
+  
+</head>
+
+  <div>
+    <img src="{!URLFOR($Resource.Draft_watermark)}" width="105%" height="100%"  style="position:fixed;background-repeat:no-repeat;left: 0cm; top:0.5cm; z-index:-999;"/>
+  </div>
+
+
+    
+    <!---------- LOGO BEGINS---------->
+             <table Style="width:98%;margin-left:1%;margin-right:1%;border:1px solid #A8A8A8;height:150px;border-bottom-style:none;">
+              <tr>
+               <td>
+                 <apex:outputpanel >
+                   <apex:image value="{!$Resource.Rocket_Fiber_Logo}" style="height:70px;width:180px;margin-left:30px;margin-top:20px"/><br/><br/><br/><br/><br/>
+                 </apex:outputpanel>
+               </td>
+               <td align="right">
+                   
+                  <apex:image value="{!$Resource.FB_Logo}" style="height:18px;width:22px;margin-top:20px;"/>
+                  <apex:outputlabel style="font-size:17px;margin-right:30px;">facebook.com/rocketfiber</apex:outputlabel><br/>
+                  <apex:image value="{!$Resource.Twitter_Logo}" style="height:18px;width:22px;margin-top:7px;"/>          
+                  <apex:outputlabel style="font-size:17px;margin-right:79px;">@rocketfiber/help</apex:outputlabel><br/><br/><br/><br/><br/>
+                  
+               </td>
+              </tr>
+             </table>
+             
+     <!---------LOGO ENDS---------------->
+     
+     <table Style="width:98%;margin-left:1%;margin-right:1%;border:2px solid #A8A8A8;border-bottom-style:none;">
+        <tr>
+         <td style="font-weight:bold">
+           <apex:outputlabel style="font-size:15px;margin-left:30px;margin-top:50px;height:10px;color:#124869;">joannalee@rocketfiber.net</apex:outputlabel><br/><br/>
+           <apex:outputlabel style="font-size:15px;margin-left:30px;color:#124869;">Account # 12345678995312</apex:outputlabel><br/><br/>
+           <apex:outputlabel style="font-size:15px;margin-left:30px;color:#124869;">CURRENT CYCLE OCT 1- NOV 1</apex:outputlabel>
+         </td>
+        
+         <td style="font-weight:bold;" align="right">
+           <apex:outputlabel style="font-size:15px;color:#124869;margin-right:55px;">Thank you for being a </apex:outputlabel><br/>
+           <apex:outputlabel style="font-size:15px;color:#124869;margin-right:65px;">Customer since 2016</apex:outputlabel>
+         </td>
+        
+       </tr> 
+       </table>
+       
+     
+        <table Style="width:98%;margin-left:1%;margin-right:1%;border-collapse:collapse;">
+           
+          <tr style="background-color:#124869;color:white;height:80px;">
+            <th style="width:100%;font-size:35px;margin-left:30px;padding-left:35px;font-weight:100;font-family:Lato;">YOUR MONTHLY BILL</th>
+          </tr> 
+        </table>
+       
+        
+          
+         <!-----------------Table 1 Begins------------------->
+           
+           <table Style="width:98%;margin-left:1%;margin-right:1%;border: 1px solid red;border-collapse:collapse;">
+
+              
+             <tr Style="width:100%;">
+              <td style="width:50%;vertical-align:top;border:1px solid #A8A8A8; ">
+         
+            <table style="width:100%;">
+             
+            <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:50px;">Prior Balance</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:50px;">$70</td>
+            </tr>
+            <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:30px;">Payments Adjustments</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:30px;">($70)</td>
+            </tr>
+            <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:30px;">Current Month Charges</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:30px;">$200</td>
+            </tr>
+            <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:30px;font-weight:bold;">Current Balance</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:30px;font-weight:bold;padding-right:10px;">$200</td>
+            </tr>
+            
+            <tr>
+            <td style="font-size:13px;color:#124869;padding-top:40px;padding-left:35px;">
+              <apex:outputlabel >You will be automatically charged for this bill,</apex:outputlabel>
+              <apex:outputlabel > No action is required on your part</apex:outputlabel>
+            </td>
+            </tr>
+            
+             
+            <!------------------Click Here Link---------------------------->
+            <tr>
+            <td style="font-size:15px;color:#124869;padding-top:20px;padding-left:35px;">
+             <apex:outputLabel style="font-weight:bold;"> <span style="color:red;">Click Here</span>&nbsp;to change or update your<br/>billing preferences</apex:outputlabel>
+            </td>
+            </tr>
+            <!------------------Click Here Link Ends------------------------>
+            
+         </table>
+         </td>
+         
+         <!--------------------Table 1 Ends----------------------------->
+          
+         <!------------------------Table 2 Begins-------------------------->
+         <td style="width:50%;border:1px solid #A8A8A8; ">
+         <table style="width:100%;">
+              <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:50px;">Service</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:50px;padding-right:20px;" align="right">$130</td>
+              </tr>
+                  <tr>
+                    <td style="font-size:16px;padding-left:45px;color:#124869;">TV</td>
+                    <td style="font-size:16px;color:#124869;padding-right:70px;">$60</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:16px;padding-left:45px;color:#124869;">Internet</td>
+                    <td style="font-size:16px;color:#124869;padding-right:70px;">$70</td>
+                  </tr>
+                  
+               <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:45px;">Devices</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:45px;padding-right:20px;" align="right">$40</td>
+              </tr>
+                  <tr>
+                    <td style="width:85%;font-size:16px;padding-left:45px;color:#124869;">TV Box</td>
+                    <td style="width:15%;font-size:16px;color:#124869;padding-right:50px">$10</td>
+                  </tr>
+                  <tr>
+                    <td style="width:85%;font-size:16px;padding-left:45px;color:#124869;">Router</td>
+                    <td style="width:15%;font-size:16px;color:#124869;padding-right:50px;">$30</td>
+                  </tr>
+               
+             <!-- <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:45px;">Video on Demand</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:45px;padding-right:20px;" align="right">$15</td>
+              </tr>
+              
+                 <tr>
+                    <td style="width:85%;font-size:20px;padding-left:45px;color:#124869;">Straight Outta Fiber</td>
+                    <td style="width:15%;font-size:20px;color:#124869;padding-right:50px">$5</td>
+                 </tr>
+                 <tr>
+                    <td style="width:85%;font-size:20px;padding-left:45px;color:#124869;">Mo' Fonts Mo' Problems</td>
+                    <td style="width:15%;font-size:20px;color:#124869;padding-right:50px;">$5</td>
+                 </tr>
+                 <tr>
+                    <td style="width:85%;font-size:20px;padding-left:45px;color:#124869;">Fifty Shades of Blue</td>
+                    <td style="width:15%;font-size:20px;color:#124869;padding-right:50px;">$5</td>
+                 </tr>
+                 
+             <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:45px;">Extras</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:45px;padding-right:20px;" align="right">$12</td>
+             </tr>
+             
+                  <tr>
+                    <td style="width:85%;font-size:20px;padding-left:45px;color:#124869;">TV Box Replacement</td>
+                    <td style="width:15%;font-size:20px;color:#124869;padding-right:50px">$12</td>
+                  </tr>-->
+                  
+             <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:45px;">Taxes and Fees</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:45px;padding-right:20px;" align="right">$20</td>
+             </tr>
+             <tr>
+                <td style="width:85%;font-size:16px;padding-left:45px;color:#124869;">Video on Demand</td>
+                <td style="width:15%;font-size:16px;color:#124869;padding-right:50px">$20</td>
+             </tr>
+             <tr>
+                <td style="width:85%;font-size:20px;padding-left:35px;color:#124869;padding-top:45px;padding-bottom:50px;">Total</td>
+                <td style="width:15%;font-size:20px;color:#124869;padding-top:45px;padding-right:20px;padding-bottom:50px;" align="right">$180</td>
+             </tr>
+          </table>
+        </td>
+       </tr>
+      </table>
+           
+       
+         <!------------------------Table 2 Ends--------------------------->
+         
+         <!------------------------FOOTER Starts-------------------------->
+
+    <table Style="width:98%;margin-left:1%;margin-right:1%;border-collapse:collapse;">
+           
+          <tr style="background-color:#124869;color:white;height:155px;">
+            <td style="font-size:13px;padding-left:18px;padding-right:15px;padding-top:8px;vertical-align:top">
+             <apex:outputLabel style="font-weight:bold;font-size:14px;">
+               To review your billing and payment information, update your billing preferences, or to adjust your plan,<br/> sign in at rocketfiber.com<br/><br/><br/> 
+             </apex:outputLabel> 
+              
+              <apex:outputLabel style="font-weight:bold" >
+                Need Help?<br/><br/>
+              </apex:outputLabel>
+              
+              <apex:outputLabel >
+               TALK TO A HUMAN
+              </apex:outputLabel>
+            
+             
+              <apex:outputlabel style="margin-left:90px;">
+               SAY HELLO
+              </apex:outputlabel>
+              
+              <apex:image value="{!$Resource.FB_Logo}" style="height:18px;width:19px;border-radius:7px;margin-left:130px;"/>
+               <apex:outputlabel >facebook.com/rocketfiber</apex:outputlabel>
+               
+              <apex:outputlabel style="margin-left:35px;font-weight:bold;font-size:20px;">
+               FAQ
+              </apex:outputlabel>
+              
+              <apex:outputlabel >
+                844-84-ROCKET (844-847-6253)</apex:outputlabel>
+               
+              <apex:outputlabel style="margin-left:30px;">
+                 missioncontrol@rocketfiber.com 
+              </apex:outputlabel>
+              
+              <apex:image value="{!$Resource.Twitter_Logo}" style="height:18px;width:19px;border-radius:7px;margin-left:32px;"/>          
+               <apex:outputlabel >@rocketfiber/help</apex:outputlabel>
+             
+           </td>
+         </tr>
+       </table>
+       
+       <!---------------------------------FOOTER ENDS---------------------------------->
+ </apex:form>
+</apex:page>

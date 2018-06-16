@@ -1,0 +1,17 @@
+<apex:page standardController="Account" tabStyle="Account">
+<apex:form id="myForm">
+    <apex:pagemessages />
+    <apex:detail subject="{!account}" relatedList="true" inlineEdit="false" />      
+</apex:form>
+
+<script language="JavaScript" type="text/javascript">
+
+ 
+    if (document.location.href.toString().indexOf("/001") != -1) { /*Hide object name input controls*/
+        $('input#Name').parent('div').parent('td').parent('tr').hide(); /*hide the usertype selector, only standard users can be employees*/
+        $('select#2F0019000001MKA2n_mlktp').hide(); /*hide the name output on employee detail page*/
+        $('#Name_ileinner').parent('td').parent('tr').hide();
+    }
+</script>
+
+</apex:page>

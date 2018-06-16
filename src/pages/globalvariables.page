@@ -1,0 +1,5 @@
+<apex:page action="{!URLFOR($Action.Account.List, $ObjectType.Account)}"/>
+
+
+
+<!--<apex:page action="{!URLFOR($Action.Contact.List, $ObjectType.Contact)}"/>-->

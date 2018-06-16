@@ -1,0 +1,14 @@
+<apex:page controller="Pageref" tabstyle="account" >
+  <apex:form >
+   <apex:pageBlock >
+    <apex:pageBlockSection >
+   
+   
+     <apex:inputField value="{!acc.name}"/>
+     <apex:commandButton value="save" action="{!save}"/>
+    
+     </apex:pageBlockSection>
+   
+   </apex:pageBlock>
+  </apex:form>
+</apex:page>

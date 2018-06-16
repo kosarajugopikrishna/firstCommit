@@ -1,0 +1,10 @@
+<apex:page standardcontroller="Account" >
+ <apex:form >
+ <apex:pageBlock >
+  <apex:pageblockSection title="Account Info">
+   <apex:inputField value="{!account.name}"/>
+   <!--<apex:outputText >please click on button to populate confirm dialog></apex:outputText>-->
+    <apex:commandButton value="Save"  onclick="return confirm('Do u want to Save?');" action="{!save}"/>
+   </apex:pageblockSection>
+   </apex:pageBlock>
+</apex:form></apex:page>

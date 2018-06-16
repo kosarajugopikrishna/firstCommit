@@ -1,0 +1,44 @@
+<apex:page standardcontroller="Training_Session__c"  sidebar="false"  extensions="CreateBulkStudents">
+    
+<apex:form >
+ 
+  <!--<apex:pageMessages />-->
+
+  <apex:pageBlock id="d" title="Session Students Edit" >
+   <apex:pageBlocksection title="Students Information" collapsible="false"/>
+    <apex:pageBlockTable value="{!Stdlist}" var="std">
+    <apex:column headerValue="Action">
+     <apex:commandlink value="Add Row" action="{!Addrow}" rerender="d"/>|
+     <apex:commandlink value="Delete Row" action="{!delrow}" rerender="d">
+      <apex:param value="{!rownum}" name="index"/>
+     </apex:commandlink>
+    </apex:column>
+    <apex:column headervalue="Training Session">
+     <apex:outputfield value="{!std.Training_Session__c}"/>
+    </apex:column>
+  
+    <apex:column headervalue="Contact">
+     <apex:inputField value="{!std.Contact__c}" style="width:100px" required="false"/>
+    </apex:column>
+
+    <apex:column headervalue="Course Fees">
+     <apex:inputField value="{!std.Course_Fees__c}" style="width:75px" required="false"/>
+    </apex:column>
+ </apex:pageBlockTable>
+</apex:pageBlock>
+   
+   
+<apex:pageBlock >
+   <apex:pageBlocksection title="Mother Groups Information" collapsible="false"/>
+     <apex:inputField value="{!mothercontact.Mother_Group__c}" style="width:100px" required="false">
+      <apex:actionSupport event="onchange" reRender="mgcdetails"/>
+     </apex:inputfield>
+    <apex:pageBlockTable value="{!MotherGroupList}" var="std" id="mgcdetails">
+     <apex:column headervalue="Mother Group Contacts">
+       <apex:outputField value="{!std.lastname}" style="width:100px" />
+     </apex:column>
+    </apex:pageblocktable> 
+   </apex:pageblock>
+  <center><apex:commandButton value="Save" action="{!save}"/></center>
+  </apex:form>
+</apex:page>

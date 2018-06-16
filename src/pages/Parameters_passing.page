@@ -1,0 +1,11 @@
+<apex:page controller="Parameters_Passing">
+    <apex:form >
+   <apex:pageBlock >   
+        <apex:pageblocktable value="{!conlist}" var="con">
+        <apex:column value="{!con.lastname}"/>
+            <apex:column value="{!con.phone}"/>
+            
+        </apex:pageblocktable>
+    </apex:pageBlock> 
+    </apex:form>
+</apex:page>

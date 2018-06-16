@@ -1,0 +1,60 @@
+<apex:page docType="html-5.0" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" cache="false" sidebar="false" showHeader="false"
+                           controller="AngularJS_Page3" >
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"/>-->
+<apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"/>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+
+<div ng-app="myapp" class="bootstrap">
+<div ng-controller="mycontroller" ng-init="loadcourses()">
+
+   <div class="container">
+    
+       <div class="page-header">
+         <label>Registration</label>
+        </div>
+       <div class="form-group">
+          <label>First Name <input type="text" class="form-control" ng-model="name"/> </label><br/>
+          <label>Last Name <input type="text" class="form-control"/> </label><br/>
+          <label>Male <input type="radio" /></label> &nbsp;
+          <label>Female <input type="radio" /></label><br/>
+          <label>Current Organisation <input type="text" class="form-control"/> </label><br/>
+          <label>Designation <input type="text" class="form-control"/> </label><br/>
+          <label>Technical Skills 
+          <!--<select class="form-control" multiple="select" ng-options="sk in courses"> 
+           
+              <span ng-bind="sk.name"/>
+         </select>-->
+         <ul ng-repeat="cr in courses">
+           <li  ng-bind="cr.name"></li>
+         </ul>
+        </label><br/>
+          
+       </div>
+    </div>
+     
+ <script type="text/javascript">
+   var app= angular.module("myapp",[]);
+   app.controller('mycontroller', ['$scope', function ($scope){
+   alert('krish');
+   
+   $scope.loadcourses= function(){
+   
+   $scope.courses=[];
+  alert('krish1---'+$scope.courses); 
+   Visualforce.remoting.Manager.invokeAction(
+   '{!$RemoteAction.AngularJS_Page3.Courseslist}',function(result){
+   
+  $scope.courses=result;
+  console.log('test'+result);
+  alert('coursedetails---'+$scope.courses);
+  });
+  
+ }
+}]);
+
+ </script>
+ </div>
+</div>
+
+</apex:page>

@@ -1,0 +1,30 @@
+<apex:page controller="ownwrapper">
+<apex:form >
+<b><apex:sectionHeader title="Wrapperclass"/></b>
+<apex:pageblock id="d" >
+ <apex:pageBlockButtons >
+  <apex:commandButton value="Show Phone" action="{!save}" rerender="d"/>
+ </apex:pageBlockButtons>
+<span><b>All Accounts</b></span>
+ <apex:pageBlockTable value="{!lstwrapacc}" var="wrapac">
+  <apex:column headerValue="S.no">
+   <apex:inputCheckbox value="{!wrapac.check}"/>
+  </apex:column>
+  <apex:column headerValue="Account Name" value="{!wrapac.acc.name}"/>
+  <apex:column headerValue="Account Phone" value="{!wrapac.acc.phone}"/>
+   
+ </apex:pageblocktable>
+  <apex:pageblockSection title="Selected Values" >
+  <apex:pageBlockTable value="{!selected}" var="s">
+   
+   <apex:column value="{!s.phone}"/>
+   </apex:pageBlockTable>
+   </apex:pageblockSection>
+  <!--<apex:pageblocksection title="All Phone No's">
+   <apex:inputtext value="{!selected}"/>
+  </apex:pageblocksection>-->
+  
+ 
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

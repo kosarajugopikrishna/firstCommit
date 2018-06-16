@@ -1,0 +1,7 @@
+<apex:page controller="SendemailController">
+ <apex:form >
+   <apex:commandButton value="Send Email" action="{!sendEmailFunction}"/>
+   <link rel="icon" href="http://salesforce.com/images/favicon.png" type="image/x-icon" />
+ </apex:form>
+ 
+</apex:page>

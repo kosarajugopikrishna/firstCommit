@@ -1,0 +1,17 @@
+<apex:page standardcontroller="Account" recordSetVar="std" >
+<apex:form >
+   <apex:sectionheader title="Accountlist" subtitle="records"/>
+<apex:pageBlock >
+<apex:pageblocksection >
+<apex:inputField value="{!account.name}" />
+<apex:inputField value="{!account.phone}"/>
+<apex:inputField value="{!account.Email__c}"/>
+</apex:pageblocksection>
+<apex:pageblockbuttons location="bottom">
+
+<apex:commandButton value="save" action="{!save}"/>
+
+</apex:pageblockbuttons>
+</apex:pageblock>
+</apex:form>
+</apex:page>

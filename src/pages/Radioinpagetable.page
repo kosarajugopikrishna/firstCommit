@@ -1,0 +1,25 @@
+<apex:page controller="getselectedvalue">
+  <apex:form >
+   <apex:pageBlock >
+    <apex:pageblocktable value="{!accs}" var="acc">
+     <apex:column headerValue="S.No">
+      <apex:actionSupport action="{!selectacc}" event="onclick" rerender="acc1">
+       <input type="radio"/>
+      <!--<apex:inputCheckbox value="{!check}" />-->
+      <apex:param value="{!acc.id}" name="accid"/>
+      
+      
+      </apex:actionsupport>
+     </apex:column>
+     <apex:column headerValue="Name" value="{!acc.name}"/>
+     <apex:column headerValue="Phone" value="{!acc.phone}"/>
+     <apex:column headerValue="Email" value="{!acc.Email__c}"/>
+   </apex:pageblocktable>
+  <apex:pageBlockTable value="{!selectedaccs}" var="acc1" id="acc1">
+    <apex:column headerValue="Name" value="{!acc1.name}"/>
+     <apex:column headerValue="Phone" value="{!acc1.phone}"/>
+  
+  </apex:pageBlockTable>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

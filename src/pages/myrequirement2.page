@@ -1,0 +1,15 @@
+<apex:page showHeader="false" sidebar="false" standardController="account" tabstyle="Account">  
+ <apex:form >  
+ <apex:sectionHeader title="Edit the record"/>  
+ <apex:pageBlock tabStyle="Account">  
+ <apex:pageBlockButtons location="both">  
+ <apex:commandButton value="save" onclick="windows.open('/apex/myrequired')" />  
+ </apex:pageBlockButtons>  
+ <apex:pageBlockSection >  
+ <apex:inputField value="{!account.name}"/>  
+ <apex:inputField value="{!account.phone}"/>  
+
+ </apex:pageBlockSection>  
+ </apex:pageBlock>  
+ </apex:form>  
+ </apex:page>

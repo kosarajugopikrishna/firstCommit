@@ -1,0 +1,6 @@
+<apex:page controller="test">
+<apex:form >
+    <apex:outputText value="{!t}" />
+    <apex:commandButton action="/test2" value="Go to test2" />
+    </apex:form>
+</apex:page>

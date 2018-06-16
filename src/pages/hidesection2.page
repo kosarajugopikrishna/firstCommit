@@ -1,0 +1,37 @@
+<apex:page standardController="Contact" extensions="ContactNewController">
+ <apex:sectionHeader title="Contact Edit" subtitle="New Contact"/>
+ <apex:form >
+  <apex:pageBlock title="Contact Edit" id="thePageBlock">
+    <apex:pageBlockButtons location="both">
+      <apex:commandButton value="Save" action="{!save}"/>
+      <apex:commandButton value="Save & New" />
+      <apex:commandButton value="Cancel" action="{!cancel}"/>
+    </apex:pageBlockButtons>
+    <apex:pageBlockSection title="Contact Information" columns="1">
+      <apex:inputField value="{!Contact.FirstName}"/>
+       <apex:inputField value="{!Contact.Lastname}" required="false"/>
+        <apex:inputField value="{!Contact.Phone}"/>
+        <apex:inputField value="{!Contact.Type__c}">
+          <apex:actionSupport event="onchange" reRender="thePageBlock"/>
+        </apex:inputField>
+        <apex:inputField value="{!Contact.AccountId}">
+          <apex:actionSupport action="{!accountInfo}" event="onchange" reRender="thePageBlock"/>
+        </apex:inputfield>
+        <apex:commandButton value="Refresh" action="{!accountInfo}" reRender="thePageBlock"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Exp Information" id="exp" rendered="{!Contact.Type__c='Teacher'}">
+      <apex:inputfield value="{!Contact.Exp__c}" />
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Course Information" id="course" rendered="{!Contact.Type__c='Student'}">
+      <apex:inputfield value="{!Contact.Course__c}" />
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Account Billing Information" rendered="{!account.id!=null}" >
+      <apex:outputField value="{!account.BillingStreet}"/>
+      <apex:outputField value="{!account.BillingCity}"/>
+      <apex:outputField value="{!account.BillingState}"/>
+      <apex:outputField value="{!account.BillingCountry}"/>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+ </apex:form>
+</apex:page>

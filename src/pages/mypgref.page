@@ -1,0 +1,14 @@
+<apex:page standardcontroller="Account" extensions="Accexten" readOnly="false">
+  <apex:form >
+   <apex:pageBlock >
+    <apex:pageBlockSection >
+     <apex:inputField value="{!account.name}"/>
+     <apex:inputField value="{!account.phone}"/>
+    </apex:pageBlockSection>
+    <apex:commandButton value="save" action="{!save}" >
+     <apex:param name="coid" value="{!account.id}" assignTo="{!conid}"/>
+     </apex:commandbutton>
+   
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>

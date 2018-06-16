@@ -1,0 +1,36 @@
+<apex:page controller="AngularJS_Page2" docType="html-5.0" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="true" cache="false">
+ 
+
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"/>-->
+ <apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta-11/angular.min.js"/>
+ 
+ 
+  <div ng-app="myapp" ng-controller="mycontroller" ng-init="loadaccounts()">
+    
+    <ul ng-repeat="Acc in Accounts">
+    <li ng-bind-html="Acc.name"></li>
+    <li ng-bind="Acc.phone"></li>
+   </ul>
+ 
+
+ 
+ <script type="text/javascript">
+ alert('krish');
+ var app=angular.module("myapp",[]);
+ app.controller('mycontroller',['$scope',funtion($scope){
+ $scope.loadaccounts=function(){
+ alert('krish');
+ $scope.Accounts=[];
+    Visualforce.remoting.Manager.invokeAction(
+   '{!$RemoteAction.AngularJS_Page2.Accountlist}',function(result){
+     
+  $scope.Accounts=result;
+  alert('coursedetails---'+$scope.Accounts);
+  });
+  }
+ }]);
+ </script>
+ 
+   </div>
+
+</apex:page>

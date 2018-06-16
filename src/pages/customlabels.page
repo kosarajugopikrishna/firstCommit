@@ -1,0 +1,9 @@
+<apex:page standardcontroller="Account">
+   <apex:form >
+     <apex:pageblock >
+       <apex:outputtext value="Welcome To the Salesforce:"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <apex:outputtext value="{!$Label.Krishna}" style="font-weight:bold"/>
+      
+     </apex:pageblock>
+   </apex:form>
+</apex:page>

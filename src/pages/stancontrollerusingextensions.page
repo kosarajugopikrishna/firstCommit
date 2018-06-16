@@ -1,0 +1,26 @@
+<apex:page standardController="Contact" extensions="ContactController">
+<apex:form >
+ <apex:sectionHeader title="Contact Edit" subtitle="New Contact"/>
+ <apex:pageBlock title="Contact Edit" mode="edit" id="thepageBLock">
+   <apex:pageBlockButtons location="top" >
+     <apex:commandButton value="Save" action="{!mySave}" />
+     <apex:commandButton value="Save & New" />
+     <apex:commandButton value="Cancel"/>
+   </apex:pageBlockButtons>
+   <apex:pageBlockSection title="Contact Information">
+     <apex:inputfield value="{!Contact.Type__c}">
+       <apex:actionSupport event="onchange" reRender="thepageBLock"/>
+     </apex:inputField>
+     <apex:inputfield value="{!Contact.FirstName}"/>
+     <apex:inputfield value="{!Contact.AccountId}"/>
+     <apex:inputfield value="{!Contact.LastName}" required="false"/>
+     <apex:inputfield value="{!Contact.phone}"/>
+     <apex:inputfield value="{!Contact.Email}"/>
+     <apex:inputfield value="{!Contact.Exp__c}" rendered="{!Contact.Type__c!='Student'}"/>
+     <apex:inputfield value="{!Contact.Course__c}" rendered="{!Contact.Type__c=='Student'}"/>
+     
+   </apex:pageBlockSection>
+ </apex:pageBlock>
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,22 @@
+<apex:page standardController="Account" extensions="cont">
+<apex:form >
+<apex:pageBlock mode="edit">
+
+
+<apex:insert name="body">
+<apex:pageBlockSection title="Account Information" >
+<apex:inputField value="{!account.name}"/>
+<apex:inputField value="{!account.phone}"/>
+</apex:pageBlockSection>
+</apex:insert>
+
+<apex:insert name="body1"> 
+<apex:pageBlockSection title="Contact Information" >
+<apex:inputField value="{!contact.lastname}"/>
+<apex:inputField value="{!contact.phone}"/>
+</apex:pageBlockSection>
+</apex:insert>
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

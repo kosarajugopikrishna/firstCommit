@@ -1,0 +1,27 @@
+<apex:page standardController="Contact" recordSetVar="conts" wizard="true">
+  <apex:pageBlock >
+    <apex:pageBlockTable value="{!conts}" var="con">
+      <apex:column headerValue="Action">
+         <apex:outputLink title="View detail in a popup window" onclick="return openPopup('{!con.Id}');">Details</apex:outputLink>
+      </apex:column>
+      <apex:column value="{!con.Name}" />
+      <apex:column value="{!con.HomePhone}" />
+      <apex:column value="{!con.Email}" /> 
+      <apex:column value="{!con.MobilePhone}" />
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+  <script>
+    function openPopup(id)
+    {
+        var newWin=window.open('{!$Page.popupex2}?id=' + id, 'PopUp',
+               'height=450,width=650,left=300,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no,channelmode=yes');
+        if (window.focus) 
+        {
+            newWin.focus();
+        }
+             
+        return false;
+        
+    }
+  </script>
+</apex:page>

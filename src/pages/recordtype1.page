@@ -1,0 +1,12 @@
+<apex:page standardcontroller="Account" extensions="recordtype">
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection title="Manager Section">
+<apex:inputfield value="{!account.name}" required="false"/>
+<apex:inputField value="{!account.Manager_Disc__c}"/><center>
+<apex:commandLink value="save" action="{!save}"/></center>
+
+</apex:pageblocksection>
+</apex:pageblock> 
+</apex:form>
+</apex:page>

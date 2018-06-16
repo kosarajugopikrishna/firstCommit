@@ -1,0 +1,5 @@
+<apex:page standardController="Account" extensions="XcelExtract_Contacts_Controller">
+  <apex:form >
+    <apex:commandButton value="Open Excel" Action="{!OpenExcelSheet}"/>  
+ </apex:form>
+</apex:page>

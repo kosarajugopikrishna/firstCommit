@@ -1,0 +1,27 @@
+<apex:page standardController="Contact">
+<apex:form >
+<apex:pageBlock title="Edit Contact: {!Contact.Name}" mode="edit">
+<apex:pageBlock title="New Contact">
+<apex:pageBlockSection title="Contact Details" columns="2">
+<apex:inputField value="{!Contact.Firstname}"/>
+<apex:inputField value="{!Contact.Lastname}"/>
+<apex:inputField value="{!Contact.Phone}"/>
+<apex:inputField value="{!Contact.MobilePhone}"/>
+
+<apex:inputText value="{!Contact.Email}"
+label="{!Contact.FirstName + '’s Email'}"/>
+</apex:pageBlockSection>
+<apex:pageBlockButtons >
+<apex:commandButton action="{!save}" value="Save"/>
+</apex:pageBlockButtons>
+</apex:pageBlock>
+</apex:pageblock>
+</apex:form>
+</apex:page>
+<!--<apex:page standardController="Account">
+
+Hello {!$User.FirstName}!
+
+<p>You are viewing the {!account.name} account.</p>
+
+</apex:page>-->

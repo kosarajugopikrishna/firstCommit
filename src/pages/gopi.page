@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Account">
+<apex:form >
+<apex:outputText value="{!Account.id}">
+</apex:outputtext>
+</apex:form>
+</apex:page>

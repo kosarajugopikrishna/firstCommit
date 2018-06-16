@@ -1,0 +1,12 @@
+<apex:page standardcontroller="account" >
+ <apex:form >
+ <apex:outputLabel value="picklistLabel"/>
+                 <apex:outputPanel layout="block" styleClass="requiredInput">
+                     <apex:outputpanel layout="block" styleClass="requiredBlock"/>
+                     <apex:selectList label="Picklist" multiselect="false" size="1" >
+                            <apex:selectOption itemlabel="1" itemvalue="gopi"/>
+                            <apex:selectOption itemlabel="2" itemvalue="krishna"/>
+                   </apex:selectList>
+                </apex:outputPanel>
+                </apex:form>
+</apex:page>
