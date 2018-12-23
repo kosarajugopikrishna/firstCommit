@@ -13,6 +13,7 @@ public with sharing class Accountpage {
      pagereference p=new pagereference('/apex/contactpage');
      p.getparameters().put('id',acc.name);
      p.getparameters().put('id2',acc.phone);
+     system.debug('---');
      return p;
      }
 }
